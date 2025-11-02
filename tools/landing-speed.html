@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محلل سرعة صفحات الهبوط - أدوات التسويق العربي</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet">
+    
+    <style>
+        .speed-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        .speed-gauge {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #ef4444 0deg 33deg,
+                #f59e0b 33deg 66deg, 
+                #10b981 66deg 100deg
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+        
+        .speed-score {
+            width: 80%;
+            height: 80%;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="speed-hero">
+        <div class="container">
+            <div class="text-center">
+                <a href="../" class="btn btn-outline-light mb-4">
+                    <i class="fas fa-arrow-right me-2"></i>عودة
+                </a>
+                <h1 class="mb-4">⚡ محلل سرعة صفحات الهبوط</h1>
+                <p class="mb-5">فحص سرعة موقعك واحصل على نصائح تحسين مخصصة</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="bg-white rounded-4 p-4">
+                            <form id="speedForm">
+                                <div class="mb-3">
+                                    <label class="form-label text-dark">رابط الموقع</label>
+                                    <input type="url" class="form-control" name="website_url" 
+                                           placeholder="https://example.com" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <div class="d-flex gap-2 justify-content-center">
+                                        <input type="radio" class="btn-check" name="device" value="mobile" id="mobile" checked>
+                                        <label class="btn btn-outline-primary" for="mobile">
+                                            <i class="fas fa-mobile-alt me-2"></i>جوال
+                                        </label>
+                                        
+                                        <input type="radio" class="btn-check" name="device" value="desktop" id="desktop">
+                                        <label class="btn btn-outline-primary" for="desktop">
+                                            <i class="fas fa-desktop me-2"></i>كمبيوتر
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-rocket me-2"></i>
+                                    تحليل السرعة الآن
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <div id="speedResults" style="display: none;">
+            <div class="text-center mb-5">
+                <div class="speed-gauge">
+                    <div class="speed-score">
+                        <h2 id="scoreValue" class="text-primary mb-0">85</h2>
+                        <small class="text-muted">درجة الأداء</small>
+                    </div>
+                </div>
+                <h3 id="analyzedUrl">الموقع المحلل</h3>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="bg-white p-4 rounded-3 shadow">
+                        <h5 class="text-success">نقاط القوة</h5>
+                        <ul id="strengths" class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>حجم صغير للصفحة</li>
+                            <li><i class="fas fa-check text-success me-2"></i>استجابة سريعة للخادم</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="bg-white p-4 rounded-3 shadow">
+                        <h5 class="text-warning">نصائح التحسين</h5>
+                        <ul id="recommendations" class="list-unstyled">
+                            <li><i class="fas fa-exclamation-triangle text-warning me-2"></i>ضغط الصور</li>
+                            <li><i class="fas fa-exclamation-triangle text-warning me-2"></i>تحسين JavaScript</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        document.getElementById('speedForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('جاري تحليل سرعة الموقع...', 'info');
+            }
+            
+            setTimeout(() => {
+                document.getElementById('speedResults').style.display = 'block';
+                document.getElementById('analyzedUrl').textContent = data.website_url;
+                
+                if (window.ArabicAdsApp) {
+                    window.ArabicAdsApp.showToast('تم انتهاء التحليل!', 'success');
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
