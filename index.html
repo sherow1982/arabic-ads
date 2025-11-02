@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أدوات التسويق العربي - منصة شاملة للتسويق الرقمي</title>
-    <meta name="description" content="منصة متكاملة من الأدوات المتقدمة للتسويق الرقمي بالذكاء الاصطناعي والتحليل المتقدم المخصصة للسوق العربي">
+    <meta name="description" content="منصة متكاملة من +50 أداة متقدمة بالذكاء الاصطناعي للتسويق الرقمي والإعلانات الممولة المخصصة للسوق العربي">
     
     <!-- Meta Tags -->
-    <meta property="og:title" content="أدوات التسويق العربي - منصة شاملة">
-    <meta property="og:description" content="أدوات متقدمة بالذكاء الاصطناعي للتسويق الرقمي والإعلانات الممولة">
+    <meta property="og:title" content="أدوات التسويق العربي - منصة شاملة بالذكاء الاصطناعي">
+    <meta property="og:description" content="+50 أداة متقدمة بالذكاء الاصطناعي للتسويق الرقمي والإعلانات الممولة في السوق العربي">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#2563eb">
     
     <!-- CSS Files -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,6 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="./assets/css/main.css" rel="stylesheet">
     <link href="./assets/css/rtl.css" rel="stylesheet">
+    <link href="./assets/css/animations.css" rel="stylesheet">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -79,7 +84,7 @@
                             <span class="gradient-text">التسويق الذكي</span>
                         </h1>
                         <p class="hero-subtitle">
-                            أكثر من 50 أداة متقدمة بالذكاء الاصطناعي لتسويق متاجرك الإلكترونية وحملاتك الإعلانية في السوق العربي والخليجي
+                            أكثر من 50 أداة متقدمص بالذكاء الاصطناعي لتسويق متاجرك الإلكترونية وحملاتك الإعلانية في السوق العربي والخليجي
                         </p>
                         
                         <div class="hero-stats">
@@ -233,6 +238,38 @@
                         رصد المنافسين <i class="fas fa-arrow-left ms-2"></i>
                     </a>
                 </div>
+
+                <div class="tool-card" data-category="analytics">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h4 class="tool-title">📊 حاسبة قيمة العميل (CLV)</h4>
+                    <p class="tool-description">حساب القيمة الكاملة للعميل مدى الحياة مع استراتيجيات الاحتفاظ وتحديد حد الإنفاق الأمثل</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">تنبؤات ذكية</span>
+                        <span class="feature-tag">ROI</span>
+                        <span class="feature-tag">احتفاظ</span>
+                    </div>
+                    <a href="./tools/clv-calculator.html" class="btn btn-primary tool-btn">
+                        حساب CLV <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+
+                <div class="tool-card" data-category="analytics">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-area"></i>
+                    </div>
+                    <h4 class="tool-title">⚡ مراقب الأداء المتقدم</h4>
+                    <p class="tool-description">مراقبة شاملة لأداء حملاتك وموقعك مع تنبيهات فورية وتحليل Core Web Vitals</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">مراقبة فورية</span>
+                        <span class="feature-tag">تنبيهات</span>
+                        <span class="feature-tag">تحليل عميق</span>
+                    </div>
+                    <a href="./tools/performance-monitor.html" class="btn btn-primary tool-btn">
+                        مراقبة الأداء <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
                 
                 <!-- E-commerce Tools -->
                 <div class="tool-card" data-category="ecommerce">
@@ -240,7 +277,7 @@
                         <i class="fas fa-tags"></i>
                     </div>
                     <h4 class="tool-title">🏷️ مُحسن الأسعار التنافسية</h4>
-                    <p class="tool-description">مراقبة أسعار المنافسين تلقائياً مع اقتراحات تسعير ديناميكية وتحليل مرونة السعر</p>
+                    <p class="tool-description">مراقبة أسعار المنافسين تلقائياً مع اقتراحات تسعير دينامية وتحليل مرونة السعر</p>
                     <div class="tool-features">
                         <span class="feature-tag">تحديث فوري</span>
                         <span class="feature-tag">ذكي</span>
@@ -269,17 +306,17 @@
                 
                 <div class="tool-card" data-category="ecommerce">
                     <div class="tool-icon">
-                        <i class="fas fa-chart-pie"></i>
+                        <i class="fas fa-calculator"></i>
                     </div>
-                    <h4 class="tool-title">📊 حاسبة قيمة العميل (CLV)</h4>
-                    <p class="tool-description">حساب القيمة الكاملة للعميل مدى الحياة مع استراتيجيات الاحتفاظ وتحديد حد الإنفاق الأمثل</p>
+                    <h4 class="tool-title">💰 حاسبة العائد على الاستثمار (ROI)</h4>
+                    <p class="tool-description">حساب عائد الاستثمار لحملاتك الإعلانية مع تحليل الربحية ونقطة التعادل</p>
                     <div class="tool-features">
-                        <span class="feature-tag">تنبؤات ذكية</span>
-                        <span class="feature-tag">ROI</span>
-                        <span class="feature-tag">احتفاظ</span>
+                        <span class="feature-tag">حساب دقيق</span>
+                        <span class="feature-tag">تحليل ربحية</span>
+                        <span class="feature-tag">تقارير</span>
                     </div>
-                    <a href="./tools/clv-calculator.html" class="btn btn-primary tool-btn">
-                        حساب CLV <i class="fas fa-arrow-left ms-2"></i>
+                    <a href="./tools/roi-calculator.html" class="btn btn-primary tool-btn">
+                        حساب ROI <i class="fas fa-arrow-left ms-2"></i>
                     </a>
                 </div>
                 
@@ -332,6 +369,22 @@
                     </a>
                 </div>
                 
+                <div class="tool-card" data-category="creative">
+                    <div class="tool-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h4 class="tool-title">📅 جدولة المنشورات الذكية</h4>
+                    <p class="tool-description">اكتشف أفضل أوقات النشر لجمهورك العربي مع تحليل أوقات الذروة وجدولة رمضان المتقدمة</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">تحليل ذكي</span>
+                        <span class="feature-tag">أوقات مهمة</span>
+                        <span class="feature-tag">رمضان خاص</span>
+                    </div>
+                    <a href="./tools/social-scheduler.html" class="btn btn-primary tool-btn">
+                        جدولة ذكية <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
                 <!-- Ramadan Special -->
                 <div class="tool-card featured" data-category="ramadan">
                     <div class="tool-icon">
@@ -363,6 +416,23 @@
                     </div>
                     <a href="./tools/dashboard.html" class="btn btn-primary tool-btn">
                         فتح اللوحة <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Google Ads Optimizer -->
+                <div class="tool-card featured" data-category="ai">
+                    <div class="tool-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h4 class="tool-title">🚀 مُحسن جوجل آدز التلقائي</h4>
+                    <p class="tool-description">تحليل وتحسين حملاتع تلقائياً مع إيقاف الكلمات غير المربحة وتعديل العطاءات تلقائياً</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">تحسين تلقائي</span>
+                        <span class="feature-tag">آمن 100%</span>
+                        <span class="feature-tag">وفر فوري</span>
+                    </div>
+                    <a href="./tools/google-ads-optimizer.html" class="btn btn-primary tool-btn">
+                        تحسين آدز <i class="fas fa-arrow-left ms-2"></i>
                     </a>
                 </div>
             </div>
@@ -640,6 +710,7 @@
                         <li><a href="./tools/ai-ad-generator.html">مولد الإعلانات</a></li>
                         <li><a href="./tools/landing-speed.html">محلل السرعة</a></li>
                         <li><a href="./tools/ramadan-planner.html">مخطط رمضان</a></li>
+                        <li><a href="./tools/dashboard.html">لوحة التحكم</a></li>
                     </ul>
                 </div>
                 
@@ -678,7 +749,7 @@
             
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 أدوات التسويق العربي. جميع الحقوق محفوظة.</p>
+                    <p class="mb-0">&copy; 2025 أدوات التسويق العربي. جميع الحقوق محفوظة.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <p class="mb-0">صنع بحب في السعودية 🇸🇦</p>
@@ -699,5 +770,20 @@
     <!-- JavaScript Files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
+    
+    <!-- PWA Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
