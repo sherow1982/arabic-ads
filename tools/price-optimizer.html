@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مُحسن الأسعار التنافسية - أدوات التسويق العربي</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet">
+    
+    <style>
+        .price-hero {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        .competitor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #10b981;
+            transition: all 0.3s ease;
+        }
+        
+        .competitor-card:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+        }
+        
+        .price-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        
+        .price-lower { background: #dcfce7; color: #166534; }
+        .price-higher { background: #fee2e2; color: #991b1b; }
+        .price-similar { background: #fef3c7; color: #92400e; }
+    </style>
+</head>
+<body>
+    <div class="price-hero">
+        <div class="container">
+            <div class="text-center">
+                <a href="../" class="btn btn-outline-light mb-4">
+                    <i class="fas fa-arrow-right me-2"></i>عودة
+                </a>
+                <h1 class="mb-4">🏷️ مُحسن الأسعار التنافسية</h1>
+                <p class="mb-5">راقب أسعار المنافسين واحصل على اقتراحات تسعير ذكية</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="bg-white rounded-4 p-4">
+                            <form id="priceForm">
+                                <div class="mb-3">
+                                    <label class="form-label text-dark">اسم المنتج</label>
+                                    <input type="text" class="form-control" name="product_name" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label text-dark">سعرك الحالي</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" name="current_price" step="0.01" required>
+                                        <span class="input-group-text">ريال</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label text-dark">روابط المنافسين</label>
+                                    <textarea class="form-control" name="competitors" rows="3" 
+                                        placeholder="أدخل روابط منتجات مماثلة"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-success btn-lg w-100">
+                                    <i class="fas fa-chart-line me-2"></i>
+                                    تحليل ومقارنة الأسعار
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div id="priceResults" style="display: none;">
+            <div class="text-center mb-5">
+                <h3>نتائج مقارنة الأسعار</h3>
+            </div>
+            
+            <div id="competitorsData"></div>
+            
+            <div class="bg-light rounded-4 p-4 mt-4">
+                <h4 class="text-center mb-4">توصيات التسعير</h4>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <h5 class="text-success">سعر مقترح</h5>
+                        <h3 id="suggestedPrice" class="text-success">245 ريال</h3>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h5 class="text-warning">زيادة متوقعة في المبيعات</h5>
+                        <h3 class="text-warning">+15%</h3>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h5 class="text-info">موقعك في السوق</h5>
+                        <h3 class="text-info">#2</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        document.getElementById('priceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('جاري تحليل الأسعار...', 'info');
+            }
+            
+            setTimeout(() => {
+                displayPriceAnalysis(data);
+            }, 3000);
+        });
+        
+        function displayPriceAnalysis(data) {
+            const competitors = [
+                { name: 'المنافس الأول', price: 280, status: 'higher' },
+                { name: 'المنافس الثاني', price: 220, status: 'lower' },
+                { name: 'المنافس الثالث', price: 250, status: 'similar' }
+            ];
+            
+            document.getElementById('competitorsData').innerHTML = competitors.map(comp => `
+                <div class="competitor-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6>${comp.name}</h6>
+                            <h4>${comp.price} ريال</h4>
+                        </div>
+                        <span class="price-badge price-${comp.status}">
+                            ${comp.status === 'higher' ? 'أعلى' : comp.status === 'lower' ? 'أقل' : 'مشابه'}
+                        </span>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('priceResults').style.display = 'block';
+            
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('تم تحليل الأسعار!', 'success');
+            }
+        }
+    </script>
+</body>
+</html>
