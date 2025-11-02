@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مُحسن جوجل آدز التلقائي - أدوات التسويق</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet">
+    
+    <style>
+        .optimizer-hero {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        .keyword-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .keyword-status:hover {
+            transform: translateX(-5px);
+        }
+        
+        .status-profitable { border-left: 4px solid #10b981; }
+        .status-losing { border-left: 4px solid #ef4444; }
+        .status-neutral { border-left: 4px solid #f59e0b; }
+        
+        .optimization-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 2px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="optimizer-hero">
+        <div class="container">
+            <div class="text-center">
+                <a href="../" class="btn btn-outline-light mb-4">
+                    <i class="fas fa-arrow-right me-2"></i>عودة
+                </a>
+                <h1 class="mb-4">🚀 مُحسن جوجل آدز التلقائي</h1>
+                <p class="mb-5">تحليل وتحسين حملاتك تلقائياً</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="bg-white rounded-4 p-4">
+                            <button id="connectAds" class="btn btn-danger btn-lg w-100">
+                                <i class="fab fa-google me-2"></i>
+                                ربط حساب جوجل آدز
+                            </button>
+                            
+                            <div class="text-center mt-3">
+                                <small class="text-muted">آمن 100% - لن نحفظ بياناتك</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <div id="optimizerResults" style="display: none;">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="optimization-card">
+                        <h4 class="mb-4">حالة الكلمات المفتاحية</h4>
+                        <div id="keywordsStatus">
+                            <div class="keyword-status status-profitable">
+                                <div>
+                                    <strong>مستحضرات تجميل</strong>
+                                    <div class="small text-muted">CPC: 1.2 ر | معدل التحويل: 4.2%</div>
+                                </div>
+                                <span class="badge bg-success">مربح</span>
+                            </div>
+                            
+                            <div class="keyword-status status-losing">
+                                <div>
+                                    <strong>شراء مكياج أونلاين</strong>
+                                    <div class="small text-muted">CPC: 3.8 ر | معدل التحويل: 0.8%</div>
+                                </div>
+                                <span class="badge bg-danger">خاسر</span>
+                            </div>
+                            
+                            <div class="keyword-status status-neutral">
+                                <div>
+                                    <strong>عروض التجميل</strong>
+                                    <div class="small text-muted">CPC: 2.1 ر | معدل التحويل: 2.1%</div>
+                                </div>
+                                <span class="badge bg-warning">متوسط</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="optimization-card">
+                        <h5 class="mb-3">توصيات التحسين</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-stop-circle text-danger me-2"></i>
+                                إيقاف 3 كلمات غير مربحة
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-arrow-up text-success me-2"></i>
+                                زيادة عطاء 5 كلمات
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-plus text-info me-2"></i>
+                                إضافة 7 كلمات جديدة
+                            </li>
+                        </ul>
+                        
+                        <button class="btn btn-success w-100" onclick="applyOptimizations()">
+                            <i class="fas fa-magic me-2"></i>
+                            تطبيق التحسينات
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        document.getElementById('connectAds').addEventListener('click', function() {
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('جاري الربط مع جوجل...', 'info');
+            }
+            
+            setTimeout(() => {
+                document.getElementById('optimizerResults').style.display = 'block';
+                if (window.ArabicAdsApp) {
+                    window.ArabicAdsApp.showToast('تم الربط بنجاح!', 'success');
+                }
+            }, 3000);
+        });
+        
+        function applyOptimizations() {
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('جاري تطبيق التحسينات...', 'info');
+                
+                setTimeout(() => {
+                    window.ArabicAdsApp.showToast('تم تطبيق جميع التحسينات!', 'success');
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>

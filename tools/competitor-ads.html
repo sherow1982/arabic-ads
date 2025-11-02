@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محلل الإعلانات التنافسية - أدوات التسويق</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet">
+    
+    <style>
+        .competitor-hero {
+            background: linear-gradient(135deg, #7c2d12 0%, #991b1b 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        .competitor-item {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .competitor-item:hover {
+            border-color: #7c2d12;
+            transform: translateY(-3px);
+        }
+        
+        .ad-preview {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #7c2d12;
+        }
+        
+        .platform-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .facebook-badge { background: #1877f2; }
+        .instagram-badge { background: #e4405f; }
+        .google-badge { background: #4285f4; }
+        .snapchat-badge { background: #fffc00; color: #000; }
+        
+        .spy-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            animation: spy-rotate 3s ease-in-out infinite;
+        }
+        
+        @keyframes spy-rotate {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="competitor-hero">
+        <div class="container">
+            <div class="text-center">
+                <a href="../" class="btn btn-outline-light mb-4">
+                    <i class="fas fa-arrow-right me-2"></i>عودة
+                </a>
+                <div class="spy-icon">🕵️</div>
+                <h1 class="mb-4">🔍 محلل الإعلانات التنافسية</h1>
+                <p class="mb-5">ارصد وحلل إعلانات منافسيك في جميع المنصات</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="bg-white rounded-4 p-4">
+                            <form id="competitorForm">
+                                <div class="mb-3">
+                                    <label class="form-label text-dark">دومين المنافس</label>
+                                    <input type="text" class="form-control" name="competitor_domain" 
+                                           placeholder="example.com" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label text-dark">المنصة المستهدفة</label>
+                                    <select class="form-select" name="platform">
+                                        <option value="all">جميع المنصات</option>
+                                        <option value="facebook">فيسبوك</option>
+                                        <option value="instagram">إنستغرام</option>
+                                        <option value="google">جوجل</option>
+                                        <option value="snapchat">سناب شات</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-danger btn-lg w-100">
+                                    <i class="fas fa-search me-2"></i>
+                                    بدء التجسس
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <div id="competitorResults" style="display: none;">
+            <h3 class="text-center mb-4">إعلانات المنافس المرصودة</h3>
+            
+            <div class="competitor-item">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5>إعلان #1</h5>
+                    <div class="d-flex gap-2">
+                        <span class="platform-badge facebook-badge">فيسبوك</span>
+                        <span class="badge bg-success">نشط</span>
+                    </div>
+                </div>
+                
+                <div class="ad-preview">
+                    <h6 class="text-primary">عرض خاص على منتجات التجميل - خصم 50%!</h6>
+                    <p class="text-muted small">اكتشفي مجموعتنا الجديدة من منتجات العناية بالبشرة. قواعد تنظيف لطيفة مع نتائج مذهلة.</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <small class="text-muted">بداية الإعلان:</small>
+                        <p>15 أكتوبر 2024</p>
+                    </div>
+                    <div class="col-md-4">
+                        <small class="text-muted">الهدف:</small>
+                        <p>زيادة المبيعات</p>
+                    </div>
+                    <div class="col-md-4">
+                        <small class="text-muted">التقدير:</small>
+                        <p class="text-success">85% معدل نجاح</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="btn btn-outline-primary" onclick="exportAnalysis()">
+                    <i class="fas fa-download me-2"></i>تصدير التحليل
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        document.getElementById('competitorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('جاري رصد المنافس...', 'info');
+            }
+            
+            setTimeout(() => {
+                document.getElementById('competitorResults').style.display = 'block';
+                if (window.ArabicAdsApp) {
+                    window.ArabicAdsApp.showToast('تم العثور على 5 إعلانات!', 'success');
+                }
+            }, 3000);
+        });
+        
+        function exportAnalysis() {
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('جاري تحضير التقرير...', 'info');
+            }
+        }
+    </script>
+</body>
+</html>

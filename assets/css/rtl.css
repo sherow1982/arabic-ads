@@ -1,0 +1,575 @@
+/* ========== RTL (Right-to-Left) Styles for Arabic ========== */
+
+/* Base RTL Styles */
+body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Typography adjustments for Arabic */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cairo', 'Amiri', serif;
+  text-align: right;
+}
+
+/* Navigation RTL */
+.navbar-nav {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+.navbar-brand {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.navbar-toggler {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Button adjustments */
+.btn i {
+  margin-left: var(--spacing-2) !important;
+  margin-right: 0 !important;
+}
+
+.btn .fas.me-2 {
+  margin-right: 0 !important;
+  margin-left: var(--spacing-2) !important;
+}
+
+.btn .fas.ms-2 {
+  margin-left: 0 !important;
+  margin-right: var(--spacing-2) !important;
+}
+
+/* Card layouts */
+.tool-card,
+.feature-card,
+.pricing-card {
+  text-align: right;
+}
+
+/* Icon adjustments */
+.tool-features {
+  justify-content: flex-start;
+}
+
+.feature-tag {
+  text-align: center;
+}
+
+/* Form elements */
+.form-control,
+.form-select {
+  text-align: right;
+  direction: rtl;
+}
+
+.form-control::placeholder {
+  text-align: right;
+}
+
+/* Contact form specific */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  text-align: right;
+}
+
+/* List adjustments */
+.pricing-features {
+  text-align: right;
+}
+
+.pricing-features li {
+  justify-content: flex-start;
+  text-align: right;
+}
+
+.footer-links {
+  text-align: right;
+}
+
+/* Hero section */
+.hero-stats {
+  justify-content: flex-start;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+/* Tools filter */
+.tools-filter {
+  direction: rtl;
+}
+
+/* Social links */
+.social-links {
+  justify-content: flex-start;
+}
+
+/* Floating cards positioning for RTL */
+.card-1 {
+  right: auto;
+  left: 10%;
+}
+
+.card-2 {
+  right: auto;
+  left: 5%;
+}
+
+.card-3 {
+  left: auto;
+  right: 10%;
+}
+
+/* Hero buttons */
+.hero-buttons {
+  justify-content: flex-start;
+}
+
+/* Pricing section */
+.price {
+  direction: rtl;
+}
+
+.popular-badge {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* Contact info */
+.contact-info {
+  text-align: center;
+}
+
+/* Footer */
+.footer .row {
+  direction: rtl;
+}
+
+/* Back to top and WhatsApp float */
+.whatsapp-float,
+.back-to-top {
+  right: auto;
+  left: 30px;
+}
+
+/* Responsive adjustments for RTL */
+@media (max-width: 768px) {
+  .whatsapp-float,
+  .back-to-top {
+    left: 20px;
+  }
+  
+  .back-to-top {
+    bottom: 90px;
+  }
+}
+
+/* Animations for RTL */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-in-rtl {
+  animation: slideInRight 0.6s ease forwards;
+}
+
+/* Text alignment fixes */
+.text-center {
+  text-align: center !important;
+}
+
+.text-start {
+  text-align: right !important;
+}
+
+.text-end {
+  text-align: left !important;
+}
+
+/* Margin and padding RTL utilities */
+.ms-2 {
+  margin-right: var(--spacing-2) !important;
+  margin-left: 0 !important;
+}
+
+.me-2 {
+  margin-left: var(--spacing-2) !important;
+  margin-right: 0 !important;
+}
+
+.ms-3 {
+  margin-right: var(--spacing-3) !important;
+  margin-left: 0 !important;
+}
+
+.me-3 {
+  margin-left: var(--spacing-3) !important;
+  margin-right: 0 !important;
+}
+
+.ms-4 {
+  margin-right: var(--spacing-4) !important;
+  margin-left: 0 !important;
+}
+
+.me-4 {
+  margin-left: var(--spacing-4) !important;
+  margin-right: 0 !important;
+}
+
+/* Flexbox adjustments */
+.justify-content-end {
+  justify-content: flex-start !important;
+}
+
+.justify-content-start {
+  justify-content: flex-end !important;
+}
+
+/* Bootstrap specific fixes for RTL */
+.dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+.dropdown-toggle::after {
+  margin-right: 0.255em;
+  margin-left: 0;
+}
+
+/* Card header adjustments */
+.card-header {
+  text-align: right;
+}
+
+.card-body {
+  text-align: right;
+}
+
+/* Table RTL support */
+.table {
+  direction: rtl;
+}
+
+.table th,
+.table td {
+  text-align: right;
+}
+
+/* Modal RTL */
+.modal-header {
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.modal-title {
+  text-align: right;
+  flex-grow: 1;
+}
+
+.modal-body {
+  text-align: right;
+}
+
+.modal-footer {
+  justify-content: flex-start;
+}
+
+/* Badge positioning */
+.badge {
+  direction: rtl;
+}
+
+/* Alert RTL */
+.alert {
+  text-align: right;
+}
+
+.alert .btn-close {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Breadcrumb RTL */
+.breadcrumb {
+  direction: rtl;
+}
+
+.breadcrumb-item::before {
+  content: "/" var(--bs-breadcrumb-divider, "/");
+}
+
+/* Pagination RTL */
+.pagination {
+  direction: rtl;
+}
+
+/* Progress bar RTL */
+.progress {
+  direction: rtl;
+}
+
+/* Tooltip RTL */
+.tooltip {
+  direction: rtl;
+}
+
+/* Offcanvas RTL */
+.offcanvas-start {
+  right: 0;
+  left: auto;
+  transform: translateX(100%);
+}
+
+.offcanvas-end {
+  left: 0;
+  right: auto;
+  transform: translateX(-100%);
+}
+
+/* Custom RTL utilities */
+.text-arabic {
+  font-family: 'Cairo', 'Amiri', serif;
+  direction: rtl;
+  text-align: right;
+}
+
+.number-ltr {
+  direction: ltr;
+  display: inline-block;
+}
+
+/* Form validation RTL */
+.invalid-feedback {
+  text-align: right;
+}
+
+.valid-feedback {
+  text-align: right;
+}
+
+/* Loading screen RTL */
+.loading-text {
+  direction: rtl;
+  text-align: center;
+}
+
+/* Special adjustments for Arabic fonts */
+.arabic-title {
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.arabic-text {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.8;
+}
+
+/* Date and time RTL */
+.datetime-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Currency and numbers */
+.currency {
+  direction: ltr;
+  display: inline-block;
+}
+
+.number {
+  direction: ltr;
+  display: inline-block;
+}
+
+/* Arabic-specific hover effects */
+.hover-arabic:hover {
+  letter-spacing: 1px;
+  transition: letter-spacing 0.3s ease;
+}
+
+/* Search box RTL */
+.search-box input {
+  text-align: right;
+  direction: rtl;
+}
+
+.search-box .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: var(--bs-border-radius);
+  border-bottom-right-radius: var(--bs-border-radius);
+}
+
+/* Tags and labels RTL */
+.tag-rtl {
+  direction: rtl;
+  text-align: center;
+}
+
+/* Comments and reviews RTL */
+.comment-rtl {
+  direction: rtl;
+  text-align: right;
+  border-right: 3px solid var(--primary-color);
+  border-left: none;
+  padding-right: 1rem;
+  padding-left: 0;
+}
+
+/* Step indicators RTL */
+.step-rtl::before {
+  right: -20px;
+  left: auto;
+}
+
+/* Chat bubbles RTL */
+.chat-bubble-right {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 1rem;
+}
+
+.chat-bubble-left {
+  margin-right: auto;
+  margin-left: 0;
+  text-align: right;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 1rem;
+}
+
+/* Timeline RTL */
+.timeline-rtl {
+  border-right: 2px solid var(--border-color);
+  border-left: none;
+  padding-right: 2rem;
+  padding-left: 0;
+}
+
+.timeline-item-rtl::before {
+  right: -8px;
+  left: auto;
+}
+
+/* Carousel RTL */
+.carousel-control-prev {
+  right: 0;
+  left: auto;
+}
+
+.carousel-control-next {
+  left: 0;
+  right: auto;
+}
+
+.carousel-indicators {
+  direction: rtl;
+}
+
+/* Accordion RTL */
+.accordion-button {
+  text-align: right;
+}
+
+.accordion-button::after {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+/* List group RTL */
+.list-group-item {
+  text-align: right;
+}
+
+/* Input group RTL */
+.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-right: -1px;
+  margin-left: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: var(--bs-border-radius);
+  border-bottom-left-radius: var(--bs-border-radius);
+}
+
+.input-group > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: var(--bs-border-radius);
+  border-bottom-right-radius: var(--bs-border-radius);
+}
+
+/* Tab navigation RTL */
+.nav-tabs .nav-link {
+  text-align: right;
+}
+
+/* Card deck RTL */
+.card-deck .card {
+  margin-left: 0;
+  margin-right: 15px;
+}
+
+.card-deck .card:last-child {
+  margin-right: 0;
+}
+
+/* Media object RTL */
+.media {
+  direction: rtl;
+}
+
+.media-object {
+  margin-left: 1rem;
+  margin-right: 0;
+}
+
+/* Print RTL styles */
+@media print {
+  body {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  .page-break {
+    page-break-after: always;
+  }
+}
+
+/* High contrast mode RTL support */
+@media (prefers-contrast: high) {
+  .text-arabic,
+  .arabic-text {
+    font-weight: 600;
+  }
+}
+
+/* Reduced motion RTL */
+@media (prefers-reduced-motion: reduce) {
+  .hover-arabic:hover {
+    letter-spacing: normal;
+    transition: none;
+  }
+}
+
+/* Custom scrollbar RTL */
+::-webkit-scrollbar-corner {
+  background: var(--bg-secondary);
+}

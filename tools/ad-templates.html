@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد قوالب الإعلانات - أدوات التسويق</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet">
+    
+    <style>
+        .templates-hero {
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .template-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .template-preview {
+            height: 200px;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #6b7280;
+        }
+        
+        .template-info {
+            padding: 1.5rem;
+        }
+        
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #374151;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            border-color: #0891b2;
+            background: #0891b2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="templates-hero">
+        <div class="container">
+            <div class="text-center">
+                <a href="../" class="btn btn-outline-light mb-4">
+                    <i class="fas fa-arrow-right me-2"></i>عودة
+                </a>
+                <h1 class="mb-4">🎨 مولد قوالب الإعلانات</h1>
+                <p class="mb-5">قوالب جاهزة محسنة للسوق العربي</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <div class="category-filter">
+            <div class="category-btn active" data-category="all">جميع القوالب</div>
+            <div class="category-btn" data-category="social">سوشيال ميديا</div>
+            <div class="category-btn" data-category="google">جوجل آدز</div>
+            <div class="category-btn" data-category="email">إيميل</div>
+            <div class="category-btn" data-category="ramadan">رمضان</div>
+        </div>
+        
+        <div class="template-grid">
+            <div class="template-card" data-category="social">
+                <div class="template-preview">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="template-info">
+                    <h5>قالب فيسبوك - منتجات تجميل</h5>
+                    <p class="text-muted small">قالب محسن لمنتجات التجميل مع نصوص عربية جذابة</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge bg-primary">1080x1080</span>
+                        <button class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-download me-1"></i>تحميل
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="template-card" data-category="social">
+                <div class="template-preview">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="template-info">
+                    <h5>قالب إنستغرام - قصة</h5>
+                    <p class="text-muted small">قالب لقصص إنستغرام مع تصميم جذاب ونصوص عربية</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge bg-info">1080x1920</span>
+                        <button class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-download me-1"></i>تحميل
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="template-card" data-category="google">
+                <div class="template-preview">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="template-info">
+                    <h5>قالب جوجل آدز - عرضي</h5>
+                    <p class="text-muted small">قالب إعلان عرضي لجوجل آدز بتصميم عربي</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge bg-success">728x90</span>
+                        <button class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-download me-1"></i>تحميل
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="template-card" data-category="ramadan">
+                <div class="template-preview" style="background: linear-gradient(135deg, #fbbf24, #f59e0b);">
+                    <i class="fas fa-moon" style="color: white;"></i>
+                </div>
+                <div class="template-info">
+                    <h5>قالب رمضاني خاص</h5>
+                    <p class="text-muted small">قوالب مخصصة لشهر رمضان مع عناصر إسلامية</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge" style="background: #f59e0b;">متعدد الأحجام</span>
+                        <button class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-download me-1"></i>تحميل
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-5">
+            <button class="btn btn-primary btn-lg" onclick="loadMoreTemplates()">
+                <i class="fas fa-plus me-2"></i>تحميل المزيد من القوالب
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        function loadMoreTemplates() {
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('جاري تحميل قوالب إضافية...', 'info');
+            }
+        }
+    </script>
+</body>
+</html>
