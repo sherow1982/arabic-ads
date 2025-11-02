@@ -84,7 +84,7 @@
                             <span class="gradient-text">التسويق الذكي</span>
                         </h1>
                         <p class="hero-subtitle">
-                            أكثر من 50 أداة متقدمص بالذكاء الاصطناعي لتسويق متاجرك الإلكترونية وحملاتك الإعلانية في السوق العربي والخليجي
+                            أكثر من 50 أداة متقدمة بالذكاء الاصطناعي لتسويق متاجرك الإلكترونية وحملاتك الإعلانية في السوق العربي والخليجي
                         </p>
                         
                         <div class="hero-stats">
@@ -277,7 +277,7 @@
                         <i class="fas fa-tags"></i>
                     </div>
                     <h4 class="tool-title">🏷️ مُحسن الأسعار التنافسية</h4>
-                    <p class="tool-description">مراقبة أسعار المنافسين تلقائياً مع اقتراحات تسعير دينامية وتحليل مرونة السعر</p>
+                    <p class="tool-description">مراقبة أسعار المنافسين تلقائياً مع اقتراحات تسعير ديناميكية وتحليل مرونة السعر</p>
                     <div class="tool-features">
                         <span class="feature-tag">تحديث فوري</span>
                         <span class="feature-tag">ذكي</span>
@@ -425,7 +425,7 @@
                         <i class="fab fa-google"></i>
                     </div>
                     <h4 class="tool-title">🚀 مُحسن جوجل آدز التلقائي</h4>
-                    <p class="tool-description">تحليل وتحسين حملاتع تلقائياً مع إيقاف الكلمات غير المربحة وتعديل العطاءات تلقائياً</p>
+                    <p class="tool-description">تحليل وتحسين حملاتك تلقائياً مع إيقاف الكلمات غير المربحة وتعديل العطاءات تلقائياً</p>
                     <div class="tool-features">
                         <span class="feature-tag">تحسين تلقائي</span>
                         <span class="feature-tag">آمن 100%</span>
@@ -758,14 +758,59 @@
         </div>
     </footer>
 
-    <!-- Floating Buttons -->
-    <a href="https://wa.me/966501234567" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+    <!-- Floating Buttons - Separated -->
+    <!-- WhatsApp Button - Right Side -->
+    <a href="https://wa.me/966501234567" class="whatsapp-float" target="_blank" 
+       style="position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease; text-decoration: none;">
+        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
     </a>
     
-    <button id="backToTop" class="back-to-top">
+    <!-- Chatbot Button - Left Side -->
+    <button id="chatbotToggle" class="chatbot-float" 
+            style="position: fixed; bottom: 24px; left: 24px; width: 60px; height: 60px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); z-index: 1000; transition: all 0.3s ease; cursor: pointer;">
+        <i class="fas fa-comments" style="font-size: 1.5rem;"></i>
+    </button>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" 
+            style="position: fixed; bottom: 100px; right: 24px; width: 45px; height: 45px; background: #2563eb; color: white; border: none; border-radius: 50%; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); z-index: 999; transition: all 0.3s ease;">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Chatbot Window -->
+    <div id="chatbotWindow" class="chatbot-window" style="display: none;">
+        <div class="chatbot-header">
+            <div class="d-flex align-items-center">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="ms-3">
+                    <h6 class="mb-0">مساعد التسويق العربي</h6>
+                    <small class="text-success">متصل الآن</small>
+                </div>
+            </div>
+            <button id="chatbotClose" class="btn-close btn-close-white"></button>
+        </div>
+        
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    أهلاً وسهلاً! 👋<br>
+                    أنا مساعدك الذكي للتسويق العربي<br>
+                    اسألني عن أي حاجة بأي لهجة عربية وهساعدك فوراً! 🚀
+                </div>
+            </div>
+        </div>
+        
+        <div class="chatbot-input">
+            <div class="input-group">
+                <input type="text" id="chatInput" class="form-control" placeholder="اكتب سؤالك هنا...">
+                <button id="chatSend" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript Files -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -785,5 +830,268 @@
             });
         }
     </script>
+
+    <!-- Chatbot Script -->
+    <script>
+        // Chatbot functionality
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotClose = document.getElementById('chatbotClose');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+
+        // Toggle chatbot
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.style.display = 'none';
+        });
+
+        // Send message
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            chatInput.value = '';
+
+            // Bot response
+            setTimeout(() => {
+                const response = generateBotResponse(message);
+                addMessage(response, 'bot');
+            }, 1000);
+        }
+
+        chatSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            messageDiv.innerHTML = `<div class="message-content">${text}</div>`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function generateBotResponse(userMessage) {
+            const msg = userMessage.toLowerCase();
+            
+            // Keywords for different tools
+            if (msg.includes('إعلان') || msg.includes('اعلان') || msg.includes('عايز إعلان') || msg.includes('بدي إعلان')) {
+                return `🎨 ممتاز! هاقدر أساعدك تعمل إعلان رائع<br><br>استخدم <a href="./tools/ai-ad-generator.html" target="_blank">مولد الإعلانات بالذكاء الاصطناعي</a> واختار المنصة اللي عايزها<br><br>أو قولي تفاصيل أكتر عن المنتج وهاعمل لك إعلان جاهز! 🚀`;
+            }
+            
+            if (msg.includes('كلمات') || msg.includes('كلمة') || msg.includes('بحث') || msg.includes('seo')) {
+                return `🔑 عايز كلمات مفتاحية عربية؟<br><br>جرب <a href="./tools/arabic-keywords.html" target="_blank">مولد الكلمات المفتاحية العربية</a><br><br>هيديك كلمات محلية وترندي لكل البلدان العربية! 📈`;
+            }
+            
+            if (msg.includes('roi') || msg.includes('عائد') || msg.includes('ربح') || msg.includes('خسارة')) {
+                return `💰 عايز تعرف عائد استثمارك؟<br><br>استخدم <a href="./tools/roi-calculator.html" target="_blank">حاسبة ROI</a> وهتعرف فوراً لو حملتك مربحة ولا لأ<br><br>كمان ممكن تجرب <a href="./tools/clv-calculator.html" target="_blank">حاسبة قيمة العميل</a> 📊`;
+            }
+            
+            if (msg.includes('رمضان') || msg.includes('الشهر الكريم') || msg.includes('إفطار')) {
+                return `🌙 رمضان كريم! عندنا حاجة خاصة ليك<br><br>شوف <a href="./tools/ramadan-planner.html" target="_blank">مخطط الحملات الرمضانية</a><br><br>فيه أفضل الأوقات وأفكار إعلانات رمضانية رائعة! ✨`;
+            }
+            
+            if (msg.includes('هاشتاج') || msg.includes('hashtag') || msg.includes('#')) {
+                return `📱 محتاج هاشتاجات تريند؟<br><br>جرب <a href="./tools/trending-hashtags.html" target="_blank">مولد الهاشتاجات التريندية</a><br><br>هيديك أحدث الهاشتاجات العربية الرايجة حالياً! 🔥`;
+            }
+            
+            if (msg.includes('سرعة') || msg.includes('بطء') || msg.includes('تحميل')) {
+                return `⚡ موقعك بطيء؟ لا تقلق!<br><br>استخدم <a href="./tools/landing-speed.html" target="_blank">محلل سرعة صفحات الهبوط</a><br><br>هيقولك إيه المشكلة وإزاي تحلها! 🎯`;
+            }
+            
+            if (msg.includes('منافس') || msg.includes('منافسين') || msg.includes('competitor')) {
+                return `🕵️ عايز تعرف إيه اللي بيعمله منافسينك؟<br><br>جرب <a href="./tools/competitor-ads.html" target="_blank">محلل الإعلانات التنافسية</a><br><br>هيرصد لك كل إعلاناتهم ويقولك ازاي تتفوق عليهم! 🏆`;
+            }
+            
+            if (msg.includes('شحن') || msg.includes('توصيل') || msg.includes('shipping')) {
+                return `🚚 محتاج تحسب تكلفة الشحن بدقة؟<br><br>استعمل <a href="./tools/shipping-calculator.html" target="_blank">حاسبة الشحن المُحسنة</a><br><br>فيها كل دول الخليج وأسعار محدثة! 📦`;
+            }
+            
+            if (msg.includes('أسعار') || msg.includes('اسعار') || msg.includes('تسعير') || msg.includes('price')) {
+                return `🏷️ عايز تحسن أسعارك؟<br><br>جرب <a href="./tools/price-optimizer.html" target="_blank">مُحسن الأسعار التنافسية</a><br><br>هيراقب المنافسين ويقترح لك أحسن سعر! 💡`;
+            }
+
+            if (msg.includes('لوحة') || msg.includes('dashboard') || msg.includes('تحكم')) {
+                return `📊 محتاج تشوف كل حملاتك في مكان واحد؟<br><br>افتح <a href="./tools/dashboard.html" target="_blank">لوحة التحكم الشاملة</a><br><br>هتلاقي كل إحصائياتك وتقاريرك! 📈`;
+            }
+
+            // Generic helpful responses for different dialects
+            if (msg.includes('مساعدة') || msg.includes('ساعدني') || msg.includes('help') || msg.includes('عايز') || msg.includes('بدي') || msg.includes('أبي')) {
+                return `🤝 أكيد هساعدك!<br><br>عندنا أكتر من 17 أداة مجانية:<br>
+                • مولد الإعلانات الذكي<br>
+                • تحليل المنافسين<br>
+                • حاسبات ROI و CLV<br>
+                • أدوات رمضانية خاصة<br><br>
+                قولي أنت محتاج إيه بالضبط وهوجهك للأداة المناسبة! 🎯`;
+            }
+            
+            // Greetings in different dialects
+            if (msg.includes('السلام') || msg.includes('أهلا') || msg.includes('مرحبا') || msg.includes('هاي') || msg.includes('هلا')) {
+                return `🌟 أهلاً وسهلاً بيك!<br><br>أنا المساعد الذكي لأدوات التسويق العربي<br>أقدر أساعدك في:<br>
+                ✅ إنشاء إعلانات احترافية<br>
+                ✅ تحليل المنافسين<br>
+                ✅ حساب العوائد والأرباح<br>
+                ✅ تحسين حملاتك<br><br>
+                إيه اللي محتاجه؟ 😊`;
+            }
+            
+            // Default response
+            return `😊 شكراً لسؤالك!<br><br>لو محتاج مساعدة في:<br>
+            🎯 <a href="./tools/buyer-personas.html">إنشاء شخصيات العملاء</a><br>
+            🚀 <a href="./tools/ai-ad-generator.html">مولد الإعلانات الذكي</a><br>
+            📊 <a href="./tools/dashboard.html">لوحة التحكم الشاملة</a><br>
+            🌙 <a href="./tools/ramadan-planner.html">خطط رمضانية</a><br><br>
+            أو اسأل عن أي حاجة تانية وهساعدك! 💪`;
+        }
+    </script>
+
+    <!-- Chatbot Styles -->
+    <style>
+        .chatbot-window {
+            position: fixed;
+            bottom: 100px;
+            left: 24px;
+            width: 350px;
+            max-width: calc(100vw - 48px);
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-avatar {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            max-height: 350px;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+        }
+
+        .user-message {
+            justify-content: flex-end;
+        }
+
+        .bot-message {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .user-message .message-content {
+            background: #2563eb;
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message .message-content {
+            background: #f3f4f6;
+            color: #374151;
+            border-bottom-left-radius: 5px;
+        }
+
+        .bot-message .message-content a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .bot-message .message-content a:hover {
+            text-decoration: underline;
+        }
+
+        .chatbot-input {
+            padding: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .chatbot-window {
+                bottom: 90px;
+                left: 12px;
+                right: 12px;
+                width: auto;
+                max-width: none;
+            }
+            
+            .whatsapp-float {
+                bottom: 12px !important;
+                right: 12px !important;
+                width: 50px !important;
+                height: 50px !important;
+            }
+            
+            .chatbot-float {
+                bottom: 12px !important;
+                left: 12px !important;
+                width: 50px !important;
+                height: 50px !important;
+            }
+            
+            .back-to-top {
+                bottom: 80px !important;
+                right: 12px !important;
+                width: 40px !important;
+                height: 40px !important;
+            }
+        }
+
+        /* Hover effects */
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .chatbot-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
+        }
+    </style>
 </body>
 </html>
