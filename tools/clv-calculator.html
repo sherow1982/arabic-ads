@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة قيمة العميل (CLV) - أدوات التسويق</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet">
+    
+    <style>
+        .clv-hero {
+            background: linear-gradient(135deg, #4c1d95 0%, #6b21a8 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        .clv-result {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .clv-value {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #92400e;
+            margin-bottom: 1rem;
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="clv-hero">
+        <div class="container">
+            <div class="text-center">
+                <a href="../" class="btn btn-outline-light mb-4">
+                    <i class="fas fa-arrow-right me-2"></i>عودة
+                </a>
+                <h1 class="mb-4">📊 حاسبة قيمة العميل (CLV)</h1>
+                <p class="mb-5">احسب القيمة الكاملة لعملائك مدى الحياة</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="bg-white rounded-4 p-4">
+                            <form id="clvForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label text-dark">متوسط قيمة ازوردر</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" name="avg_order" step="0.01" required>
+                                            <span class="input-group-text">ريال</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label text-dark">عدد الطلبيات شهرياً</label>
+                                        <input type="number" class="form-control" name="orders_per_month" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label text-dark">مدة بقاء العميل (شهور)</label>
+                                        <input type="number" class="form-control" name="customer_lifespan" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label text-dark">هامش الربح (%)</label>
+                                        <input type="number" class="form-control" name="profit_margin" step="0.1" required>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-success btn-lg w-100">
+                                    <i class="fas fa-calculator me-2"></i>
+                                    حساب CLV
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div id="clvResults" style="display: none;">
+            <div class="clv-result">
+                <h3>قيمة العميل مدى الحياة</h3>
+                <div class="clv-value" id="clvValue">2,450 ر</div>
+                <p>هذه هي القيمة المتوقعة لكل عميل خلال فترة بقائه</p>
+            </div>
+            
+            <div class="bg-white rounded-4 p-4">
+                <h4 class="mb-4">تحليل تفصيلي</h4>
+                <div id="clvBreakdown">
+                    <div class="metric-row">
+                        <span>إجمالي الإيرادات:</span>
+                        <strong id="totalRevenue">3,500 ر</strong>
+                    </div>
+                    <div class="metric-row">
+                        <span>إجمالي الربح:</span>
+                        <strong id="totalProfit" class="text-success">2,450 ر</strong>
+                    </div>
+                    <div class="metric-row">
+                        <span>حد الإنفاق المقترح:</span>
+                        <strong id="spendingLimit" class="text-info">350 ر</strong>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" onclick="exportCLVReport()">
+                        <i class="fas fa-file-export me-2"></i>تصدير التقرير
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        document.getElementById('clvForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            calculateCLV(data);
+        });
+        
+        function calculateCLV(data) {
+            const avgOrder = parseFloat(data.avg_order);
+            const ordersPerMonth = parseInt(data.orders_per_month);
+            const lifespan = parseInt(data.customer_lifespan);
+            const profitMargin = parseFloat(data.profit_margin) / 100;
+            
+            const totalRevenue = avgOrder * ordersPerMonth * lifespan;
+            const totalProfit = totalRevenue * profitMargin;
+            const spendingLimit = totalProfit * 0.2; // 20% of CLV
+            
+            document.getElementById('clvValue').textContent = `${Math.round(totalProfit).toLocaleString()} ر`;
+            document.getElementById('totalRevenue').textContent = `${Math.round(totalRevenue).toLocaleString()} ر`;
+            document.getElementById('totalProfit').textContent = `${Math.round(totalProfit).toLocaleString()} ر`;
+            document.getElementById('spendingLimit').textContent = `${Math.round(spendingLimit).toLocaleString()} ر`;
+            
+            document.getElementById('clvResults').style.display = 'block';
+            
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('تم حساب CLV بنجاح!', 'success');
+            }
+        }
+        
+        function exportCLVReport() {
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('جاري تحضير تقرير CLV...', 'info');
+            }
+        }
+    </script>
+</body>
+</html>
