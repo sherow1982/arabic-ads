@@ -1,0 +1,47 @@
+{
+  "name": "أدوات التسويق العربي - Arabic Marketing Tools",
+  "short_name": "ArabicAds",
+  "description": "منصة شاملة من الأدوات المتقدمة للتسويق الرقمي بالذكاء الاصطناعي المخصصة للسوق العربي",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192x192/2563eb/ffffff?text=أدوات",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "https://via.placeholder.com/512x512/2563eb/ffffff?text=عربي", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["business", "marketing", "productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "https://via.placeholder.com/1280x720/f8fafc/2563eb?text=أدوات+التسويق+العربي",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "الصفحة الرئيسية لأدوات التسويق العربي"
+    },
+    {
+      "src": "https://via.placeholder.com/750x1334/667eea/ffffff?text=مولد+الإعلانات",
+      "sizes": "750x1334",
+      "type": "image/png", 
+      "platform": "narrow",
+      "label": "مولد الإعلانات بالذكاء الاصطناعي"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "scope": "/",
+  "id": "arabic-marketing-tools"
+}
