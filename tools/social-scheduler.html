@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدولة المنشورات الذكية - أدوات التسويق العربي</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet">
+    
+    <style>
+        .scheduler-hero {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        .time-slot {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .time-slot:hover,
+        .time-slot.optimal {
+            border-color: #f59e0b;
+            transform: translateY(-2px);
+        }
+        
+        .optimal-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="scheduler-hero">
+        <div class="container">
+            <div class="text-center">
+                <a href="../" class="btn btn-outline-light mb-4">
+                    <i class="fas fa-arrow-right me-2"></i>عودة
+                </a>
+                <h1 class="mb-4">📅 جدولة المنشورات الذكية</h1>
+                <p class="mb-5">اكتشف أفضل أوقات النشر لجمهورك العربي</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h3>أفضل أوقات النشر للسوق العربي</h3>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <h5 class="mb-3">الأحد</h5>
+                <div class="time-slot optimal position-relative">
+                    <div class="optimal-badge">★</div>
+                    <strong>9:00 ص</strong>
+                    <div class="small">تفاعل: 85%</div>
+                </div>
+                <div class="time-slot">
+                    <strong>8:00 م</strong>
+                    <div class="small">تفاعل: 72%</div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 text-center">
+                <h5 class="mb-3">الإثنين</h5>
+                <div class="time-slot optimal position-relative">
+                    <div class="optimal-badge">★</div>
+                    <strong>10:00 ص</strong>
+                    <div class="small">تفاعل: 90%</div>
+                </div>
+                <div class="time-slot">
+                    <strong>7:30 م</strong>
+                    <div class="small">تفاعل: 68%</div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 text-center">
+                <h5 class="mb-3">الثلاثاء</h5>
+                <div class="time-slot optimal position-relative">
+                    <div class="optimal-badge">★</div>
+                    <strong>11:00 ص</strong>
+                    <div class="small">تفاعل: 88%</div>
+                </div>
+                <div class="time-slot">
+                    <strong>6:00 م</strong>
+                    <div class="small">تفاعل: 75%</div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 text-center">
+                <h5 class="mb-3">الأربعاء</h5>
+                <div class="time-slot optimal position-relative">
+                    <div class="optimal-badge">★</div>
+                    <strong>2:00 م</strong>
+                    <div class="small">تفاعل: 82%</div>
+                </div>
+                <div class="time-slot">
+                    <strong>9:00 م</strong>
+                    <div class="small">تفاعل: 70%</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-light rounded-4 p-4 mt-5">
+            <div class="text-center">
+                <h4 class="mb-4">🔥 نصائح التوقيت الذهبية</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <i class="fas fa-clock fa-2x text-warning mb-3"></i>
+                        <h6>أوقات الذروة</h6>
+                        <p class="small">9-11 صباحاً و 8-10 مساءً</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-calendar fa-2x text-success mb-3"></i>
+                        <h6>أفضل الأيام</h6>
+                        <p class="small">الأحد والثلاثاء والخميس</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="fas fa-moon fa-2x text-info mb-3"></i>
+                        <h6>رمضان خاص</h6>
+                        <p class="small">بعد الإفطار مباشرة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
