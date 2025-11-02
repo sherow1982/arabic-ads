@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مخطط الحملات الرمضانية - أدوات التسويق العربي</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet">
+    
+    <style>
+        .ramadan-hero {
+            background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+            padding: 4rem 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ramadan-moon {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+            to { box-shadow: 0 0 40px rgba(251, 191, 36, 0.8); }
+        }
+        
+        .timing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .timing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .timing-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .calendar-day.ramadan {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+        }
+        
+        .calendar-day.eid {
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="ramadan-hero">
+        <div class="container">
+            <div class="text-center">
+                <a href="../" class="btn btn-outline-light mb-4">
+                    <i class="fas fa-arrow-right me-2"></i>عودة
+                </a>
+                <div class="ramadan-moon">☽</div>
+                <h1 class="mb-4">🌙 مخطط الحملات الرمضانية</h1>
+                <p class="mb-5">استراتيجيات مخصصة لشهر رمضان المبارك</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2>أفضل أوقات الإعلان في رمضان</h2>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="timing-card">
+                    <div class="timing-icon" style="background: #3b82f6;">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h5>السحور</h5>
+                    <h4 class="text-primary">2:30 - 4:30 ص</h4>
+                    <p>تفاعل: 35%</p>
+                    <ul class="list-unstyled small">
+                        <li>محتوى تحفيزي</li>
+                        <li>منتجات السحور</li>
+                        <li>تطبيقات روحانية</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-3 mb-4">
+                <div class="timing-card">
+                    <div class="timing-icon" style="background: #f59e0b;">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h5>الإفطار</h5>
+                    <h4 class="text-warning">6:00 - 8:00 م</h4>
+                    <p>تفاعل: 85%</p>
+                    <ul class="list-unstyled small">
+                        <li>الطعام والمشروبات</li>
+                        <li>العروض الخاصة</li>
+                        <li>التجمعات العائلية</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-3 mb-4">
+                <div class="timing-card">
+                    <div class="timing-icon" style="background: #8b5cf6;">
+                        <i class="fas fa-star-and-crescent"></i>
+                    </div>
+                    <h5>المساء</h5>
+                    <h4 style="color: #8b5cf6;">8:00 - 11:00 م</h4>
+                    <p>تفاعل: 95%</p>
+                    <ul class="list-unstyled small">
+                        <li>المسلسلات الرمضانية</li>
+                        <li>التسوق الإلكتروني</li>
+                        <li>البرامج الدينية</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-3 mb-4">
+                <div class="timing-card">
+                    <div class="timing-icon" style="background: #1f2937;">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <h5>القيام</h5>
+                    <h4 class="text-dark">11:00 م - 2:00 ص</h4>
+                    <p>تفاعل: 60%</p>
+                    <ul class="list-unstyled small">
+                        <li>المحتوى الديني</li>
+                        <li>القراءة والتأمل</li>
+                        <li>التطبيقات الإسلامية</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-light rounded-4 p-4 mt-5">
+            <h3 class="text-center mb-4">إحصائيات رمضان والتسويق</h3>
+            <div class="row text-center">
+                <div class="col-md-4 mb-3">
+                    <h2 class="text-primary">400%</h2>
+                    <p>زيادة البحث عن المحتوى الديني</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h2 class="text-success">85%</h2>
+                    <p>زيادة في التسوق الإلكتروني</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h2 class="text-warning">60%</h2>
+                    <p>زيادة استخدام وسائل التواصل</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
