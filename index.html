@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أدوات التسويق العربي - منصة شاملة للتسويق الرقمي</title>
+    <meta name="description" content="منصة متكاملة من الأدوات المتقدمة للتسويق الرقمي بالذكاء الاصطناعي والتحليل المتقدم المخصصة للسوق العربي">
+    
+    <!-- Meta Tags -->
+    <meta property="og:title" content="أدوات التسويق العربي - منصة شاملة">
+    <meta property="og:description" content="أدوات متقدمة بالذكاء الاصطناعي للتسويق الرقمي والإعلانات الممولة">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="./assets/css/main.css" rel="stylesheet">
+    <link href="./assets/css/rtl.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="loading-icon">🚀</div>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <div class="loading-text">جاري تحميل الواجهة...</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-rocket me-2"></i>
+                أدوات التسويق العربي
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tools">الأدوات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">المميزات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">الأسعار</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">تواصل</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#contact" class="btn btn-outline-light ms-2">تجربة مجانية</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-particles"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            منصة شاملة لأدوات
+                            <span class="gradient-text">التسويق الذكي</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            أكثر من 50 أداة متقدمة بالذكاء الاصطناعي لتسويق متاجرك الإلكترونية وحملاتك الإعلانية في السوق العربي والخليجي
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <h3>50+</h3>
+                                <p>أداة متقدمة</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>22</h3>
+                                <p>دولة عربية</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>100%</h3>
+                                <p>مجاني</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hero-buttons">
+                            <a href="#tools" class="btn btn-light btn-lg me-3">
+                                <i class="fas fa-rocket me-2"></i>
+                                ابدأ الآن
+                            </a>
+                            <a href="#features" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-play me-2"></i>
+                                شاهد العرض
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <div class="floating-cards">
+                            <div class="floating-card card-1">
+                                <i class="fas fa-brain"></i>
+                                <h5>ذكاء اصطناعي</h5>
+                            </div>
+                            <div class="floating-card card-2">
+                                <i class="fas fa-chart-line"></i>
+                                <h5>تحليل متقدم</h5>
+                            </div>
+                            <div class="floating-card card-3">
+                                <i class="fas fa-globe-asia"></i>
+                                <h5>خاص بالعرب</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">مجموعة شاملة من الأدوات المتقدمة</h2>
+                <p class="section-subtitle">أدوات متخصصة للمسوقين العرب بالذكاء الاصطناعي</p>
+            </div>
+            
+            <!-- Tools Filter -->
+            <div class="tools-filter">
+                <button class="filter-btn active" data-filter="all">جميع الأدوات</button>
+                <button class="filter-btn" data-filter="ai">ذكاء اصطناعي</button>
+                <button class="filter-btn" data-filter="analytics">تحليل</button>
+                <button class="filter-btn" data-filter="ecommerce">تجارة إلكترونية</button>
+                <button class="filter-btn" data-filter="creative">إبداعي</button>
+                <button class="filter-btn" data-filter="ramadan">رمضاني</button>
+            </div>
+            
+            <!-- Tools Grid -->
+            <div class="tools-grid">
+                <!-- AI Tools -->
+                <div class="tool-card featured" data-category="ai">
+                    <div class="tool-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h4 class="tool-title">🧠 مولد شخصيات العملاء</h4>
+                    <p class="tool-description">إنشاء شخصيات مفصلة للعملاء المثاليين مع تحليل السلوك الشرائي للسوق الخليجي</p>
+                    <div class="tool-features">
+                        <span class="feature-tag popular">مميز</span>
+                        <span class="feature-tag">ذكاء اصطناعي</span>
+                        <span class="feature-tag">+50 معيار</span>
+                    </div>
+                    <a href="./tools/buyer-personas.html" class="btn btn-primary tool-btn">
+                        جرب الآن <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card featured" data-category="ai">
+                    <div class="tool-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4 class="tool-title">🎨 مولد إعلانات بالذكاء الاصطناعي</h4>
+                    <p class="tool-description">إنشاء عناوين وأوصاف مُحسنة تلقائياً مع A/B testing تلقائي ونسخ تناسب الثقافة العربية</p>
+                    <div class="tool-features">
+                        <span class="feature-tag popular">الأكثر طلباً</span>
+                        <span class="feature-tag">6 منصات</span>
+                        <span class="feature-tag">+100 قالب</span>
+                    </div>
+                    <a href="./tools/ai-ad-generator.html" class="btn btn-primary tool-btn">
+                        إنشاء إعلان <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Analytics Tools -->
+                <div class="tool-card" data-category="analytics">
+                    <div class="tool-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h4 class="tool-title">⚡ محلل سرعة صفحات الهبوط</h4>
+                    <p class="tool-description">فحص سرعة الموقع مع Core Web Vitals ونصائح عربية ومقارنة مع المنافسين المحليين</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">Core Web Vitals</span>
+                        <span class="feature-tag">مجاني</span>
+                        <span class="feature-tag">مقارنة</span>
+                    </div>
+                    <a href="./tools/landing-speed.html" class="btn btn-primary tool-btn">
+                        فحص الآن <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card" data-category="analytics">
+                    <div class="tool-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4 class="tool-title">🌍 محلل الجمهور الجغرافي</h4>
+                    <p class="tool-description">تحليل أداء الحملات حسب المدن والمناطق مع خريطة حرارية واقتراحات التوسع الجغرافي</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">خرائط تفاعلية</span>
+                        <span class="feature-tag">22 دولة</span>
+                        <span class="feature-tag">تحليل عميق</span>
+                    </div>
+                    <a href="./tools/geo-analyzer.html" class="btn btn-primary tool-btn">
+                        تحليل الجمهور <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card" data-category="analytics">
+                    <div class="tool-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h4 class="tool-title">🔍 محلل الإعلانات التنافسية</h4>
+                    <p class="tool-description">رصد وتحليل إعلانات المنافسين في جميع المنصات مع اكتشاف فرص تنافسية مخفية</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">رصد مستمر</span>
+                        <span class="feature-tag">جميع المنصات</span>
+                        <span class="feature-tag">تنبيهات</span>
+                    </div>
+                    <a href="./tools/competitor-ads.html" class="btn btn-primary tool-btn">
+                        رصد المنافسين <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <!-- E-commerce Tools -->
+                <div class="tool-card" data-category="ecommerce">
+                    <div class="tool-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h4 class="tool-title">🏷️ مُحسن الأسعار التنافسية</h4>
+                    <p class="tool-description">مراقبة أسعار المنافسين تلقائياً مع اقتراحات تسعير ديناميكية وتحليل مرونة السعر</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">تحديث فوري</span>
+                        <span class="feature-tag">ذكي</span>
+                        <span class="feature-tag">أسعار دينامية</span>
+                    </div>
+                    <a href="./tools/price-optimizer.html" class="btn btn-primary tool-btn">
+                        تحسين الأسعار <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card" data-category="ecommerce">
+                    <div class="tool-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h4 class="tool-title">🚚 حاسبة تكلفة الشحن المُحسنة</h4>
+                    <p class="tool-description">حسابات شحن دقيقة لدول الخليج مع استراتيجيات الشحن المجاني وتحليل تأثير الشحن</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">6 دول خليجية</span>
+                        <span class="feature-tag">حساب دقيق</span>
+                        <span class="feature-tag">استراتيجيات</span>
+                    </div>
+                    <a href="./tools/shipping-calculator.html" class="btn btn-primary tool-btn">
+                        حساب الشحن <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card" data-category="ecommerce">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h4 class="tool-title">📊 حاسبة قيمة العميل (CLV)</h4>
+                    <p class="tool-description">حساب القيمة الكاملة للعميل مدى الحياة مع استراتيجيات الاحتفاظ وتحديد حد الإنفاق الأمثل</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">تنبؤات ذكية</span>
+                        <span class="feature-tag">ROI</span>
+                        <span class="feature-tag">احتفاظ</span>
+                    </div>
+                    <a href="./tools/clv-calculator.html" class="btn btn-primary tool-btn">
+                        حساب CLV <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Creative Tools -->
+                <div class="tool-card" data-category="creative">
+                    <div class="tool-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h4 class="tool-title">🎨 مولد قوالب الإعلانات</h4>
+                    <p class="tool-description">قوالب جاهزة لجميع المنصات والأحجام مع تصاميم مُحسنة للسوق العربي وتصدير بجودات متعددة</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">+500 قالب</span>
+                        <span class="feature-tag">جميع المنصات</span>
+                        <span class="feature-tag">عربي</span>
+                    </div>
+                    <a href="./tools/ad-templates.html" class="btn btn-primary tool-btn">
+                        إنشاء قالب <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card" data-category="creative">
+                    <div class="tool-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h4 class="tool-title">🔑 مولد الكلمات المفتاحية العربية</h4>
+                    <p class="tool-description">كلمات مفتاحية مترجمة ومحلية مع تحليل المنافسة واقتراحات كلمات طويلة الذيل</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">عربي محلي</span>
+                        <span class="feature-tag">تحليل منافسة</span>
+                        <span class="feature-tag">طويل الذيل</span>
+                    </div>
+                    <a href="./tools/arabic-keywords.html" class="btn btn-primary tool-btn">
+                        إيجاد كلمات <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <div class="tool-card" data-category="creative">
+                    <div class="tool-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h4 class="tool-title">📱 مولد الهاشتاجات التريندية</h4>
+                    <p class="tool-description">هاشتاجات عربية تريند حالياً مع تحليل شعبية الهاشتاجات واقتراحات مخصصة لكل منصة</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">تريند مباشر</span>
+                        <span class="feature-tag">عربي</span>
+                        <span class="feature-tag">جميع المنصات</span>
+                    </div>
+                    <a href="./tools/trending-hashtags.html" class="btn btn-primary tool-btn">
+                        اقتراح هاشتاج <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Ramadan Special -->
+                <div class="tool-card featured" data-category="ramadan">
+                    <div class="tool-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h4 class="tool-title">🌙 مخطط الحملات الرمضانية</h4>
+                    <p class="tool-description">استراتيجيات خاصة بشهر رمضان مع أفضل أوقات الإعلان في رمضان وقوالب إعلانية رمضانية</p>
+                    <div class="tool-features">
+                        <span class="feature-tag popular">رمضان 2025</span>
+                        <span class="feature-tag">خاص بالعرب</span>
+                        <span class="feature-tag">إحصائيات</span>
+                    </div>
+                    <a href="./tools/ramadan-planner.html" class="btn btn-primary tool-btn">
+                        خطة رمضان <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Dashboard Tool -->
+                <div class="tool-card featured" data-category="analytics">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="tool-title">📊 لوحة تحكم شاملة</h4>
+                    <p class="tool-description">عرض بيانات جميع المنصات في مكان واحد مع مقارنات سريعة وتقارير وتنبيهات الأداء والميزانية</p>
+                    <div class="tool-features">
+                        <span class="feature-tag">جميع المنصات</span>
+                        <span class="feature-tag">تقارير</span>
+                        <span class="feature-tag">تنبيهات</span>
+                    </div>
+                    <a href="./tools/dashboard.html" class="btn btn-primary tool-btn">
+                        فتح اللوحة <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <button id="loadMoreTools" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-plus me-2"></i>
+                    تحميل المزيد من الأدوات
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section py-5">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">لماذا نحن مختلفون؟</h2>
+                <p class="section-subtitle">مميزات فريدة مخصصة للمسوقين العرب</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>ذكاء اصطناعي متقدم</h4>
+                        <p>خوارزميات تعلم آلي متطورة مدربة على السوق العربي لإنشاء محتوى واقتراحات أكثر دقة وفعالية</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h4>مخصص للسوق العربي</h4>
+                        <p>جميع الأدوات مُحسنة للثقافة والعادات العربية مع مراعاة خصائص كل منطقة ودولة</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>سرعة وأداء عالي</h4>
+                        <p>تقنيات متقدمة للحصول على نتائج فورية ودقيقة مع ضمان سرعة التحميل والاستجابة</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>أمان وخصوصية</h4>
+                        <p>حماية شاملة لبياناتك مع تشفير متقدم وعدم حفظ أي معلومات حساسة على خوادمنا</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>متوافق مع جميع الأجهزة</h4>
+                        <p>تصميم متجاوب يعمل بسلاسة على الهواتف والأجهزة اللوحية والكمبيوتر بنفس الجودة</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>دعم فني متميز</h4>
+                        <p>فريق دعم عربي متخصص متاح 24/7 لمساعدتك في استخدام الأدوات وحل أي مشاكل تقنية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">اختر الخطة المناسبة لك</h2>
+                <p class="section-subtitle">خطط مرنة تناسب جميع الميزانيات والاحتياجات</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4>مجاني</h4>
+                            <div class="price">
+                                <span class="amount">0</span>
+                                <span class="currency">ريال / شهر</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i>وصول لجميع الأدوات الأساسية</li>
+                            <li><i class="fas fa-check"></i>10 استعلامات يومياً</li>
+                            <li><i class="fas fa-check"></i>مولد شخصيات العملاء</li>
+                            <li><i class="fas fa-check"></i>محلل سرعة المواقع</li>
+                            <li><i class="fas fa-check"></i>مولد الكلمات المفتاحية</li>
+                            <li><i class="fas fa-times"></i>تقارير مفصلة</li>
+                            <li><i class="fas fa-times"></i>دعم ذو أولوية</li>
+                            <li><i class="fas fa-times"></i>API خاص</li>
+                        </ul>
+                        
+                        <button class="btn btn-outline-primary pricing-btn">ابدأ مجاناً</button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">الأكثر شعبية</div>
+                        <div class="pricing-header">
+                            <h4>احترافي</h4>
+                            <div class="price">
+                                <span class="amount">199</span>
+                                <span class="currency">ريال / شهر</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i>جميع مميزات الخطة المجانية</li>
+                            <li><i class="fas fa-check"></i>500 استعلام يومياً</li>
+                            <li><i class="fas fa-check"></i>جميع أدوات الذكاء الاصطناعي</li>
+                            <li><i class="fas fa-check"></i>تقارير مفصلة وتصدير</li>
+                            <li><i class="fas fa-check"></i>لوحة تحكم متقدمة</li>
+                            <li><i class="fas fa-check"></i>مراقبة المنافسين</li>
+                            <li><i class="fas fa-check"></i>دعم فني متميز</li>
+                            <li><i class="fas fa-times"></i>API خاص</li>
+                        </ul>
+                        
+                        <button class="btn btn-primary pricing-btn">ابدأ الآن</button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h4>مؤسسي</h4>
+                            <div class="price">
+                                <span class="amount">499</span>
+                                <span class="currency">ريال / شهر</span>
+                            </div>
+                        </div>
+                        
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i>جميع مميزات الخطة الاحترافية</li>
+                            <li><i class="fas fa-check"></i>استعلامات غير محدودة</li>
+                            <li><i class="fas fa-check"></i>API مخصص للتكامل</li>
+                            <li><i class="fas fa-check"></i>مدير حساب مخصص</li>
+                            <li><i class="fas fa-check"></i>تدريب واستشارة</li>
+                            <li><i class="fas fa-check"></i>حلول مخصصة</li>
+                            <li><i class="fas fa-check"></i>دعم فوري 24/7</li>
+                            <li><i class="fas fa-check"></i>White Label</li>
+                        </ul>
+                        
+                        <button class="btn btn-outline-primary pricing-btn">تواصل معنا</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">تواصل معنا</h2>
+                <p class="section-subtitle">نحن هنا لمساعدتك في تحقيق أهدافك التسويقية</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mb-4">
+                    <div class="contact-card">
+                        <form id="contactForm" class="contact-form">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">الاسم الكامل</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">البريد الإلكتروني</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">الموضوع</label>
+                                <select class="form-select" id="subject" name="subject" required>
+                                    <option value="">اختر الموضوع</option>
+                                    <option value="support">دعم فني</option>
+                                    <option value="sales">استفسار مبيعات</option>
+                                    <option value="partnership">شراكة</option>
+                                    <option value="feedback">اقتراح أو ملاحظة</option>
+                                    <option value="other">أخرى</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">الرسالة</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                إرسال الرسالة
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-12 mb-4">
+                            <div class="contact-info">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h5>البريد الإلكتروني</h5>
+                                <p>info@arabic-ads-tools.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-12 mb-4">
+                            <div class="contact-info">
+                                <div class="contact-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <h5>واتساب</h5>
+                                <p>+966 50 123 4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-12 mb-4">
+                            <div class="contact-info">
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h5>ساعات العمل</h5>
+                                <p>الأحد - الخميس<br>9:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>أدوات التسويق العربي</h5>
+                    <p>منصة متكاملة من الأدوات المتقدمة للتسويق الرقمي بالذكاء الاصطناعي المخصصة للسوق العربي.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>الأدوات</h6>
+                    <ul class="footer-links">
+                        <li><a href="./tools/buyer-personas.html">شخصيات العملاء</a></li>
+                        <li><a href="./tools/ai-ad-generator.html">مولد الإعلانات</a></li>
+                        <li><a href="./tools/landing-speed.html">محلل السرعة</a></li>
+                        <li><a href="./tools/ramadan-planner.html">مخطط رمضان</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>الشركة</h6>
+                    <ul class="footer-links">
+                        <li><a href="#about">عنا</a></li>
+                        <li><a href="#blog">المدونة</a></li>
+                        <li><a href="#careers">الوظائف</a></li>
+                        <li><a href="#press">الصحافة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>الدعم</h6>
+                    <ul class="footer-links">
+                        <li><a href="#help">مركز المساعدة</a></li>
+                        <li><a href="#docs">الوثائق</a></li>
+                        <li><a href="#tutorials">دروس تعليمية</a></li>
+                        <li><a href="#contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>قانوني</h6>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">سياسة الخصوصية</a></li>
+                        <li><a href="#terms">شروط الاستخدام</a></li>
+                        <li><a href="#cookies">ملفات تعريف الارتباط</a></li>
+                        <li><a href="#gdpr">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 أدوات التسويق العربي. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">صنع بحب في السعودية 🇸🇦</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/966501234567" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
