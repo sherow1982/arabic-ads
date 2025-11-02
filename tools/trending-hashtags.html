@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مولد الهاشتاجات التريندية - أدوات التسويق</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet">
+    
+    <style>
+        .hashtag-hero {
+            background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        .hashtag-item {
+            background: white;
+            border-radius: 25px;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .hashtag-item:hover {
+            border-color: #ec4899;
+            transform: translateY(-2px);
+        }
+        
+        .platform-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .platform-tab {
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .platform-tab:hover,
+        .platform-tab.active {
+            border-color: #ec4899;
+            background: #ec4899;
+            color: white;
+        }
+        
+        .trending-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-left: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="hashtag-hero">
+        <div class="container">
+            <div class="text-center">
+                <a href="../" class="btn btn-outline-light mb-4">
+                    <i class="fas fa-arrow-right me-2"></i>عودة
+                </a>
+                <h1 class="mb-4">📱 مولد الهاشتاجات التريندية</h1>
+                <p class="mb-5">اعثر على أحدث الهاشتاجات العربية الرائجة</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="bg-white rounded-4 p-4">
+                            <form id="hashtagForm">
+                                <div class="mb-3">
+                                    <label class="form-label text-dark">الموضوع أو الصناعة</label>
+                                    <input type="text" class="form-control" name="topic" 
+                                           placeholder="مثل: طبخ - موضة - رياضة" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label text-dark">المنطقة</label>
+                                    <select class="form-select" name="region">
+                                        <option value="gulf">الخليج العربي</option>
+                                        <option value="levant">بلاد الشام</option>
+                                        <option value="north_africa">شمال أفريقيا</option>
+                                        <option value="all_arab">جميع العرب</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-hashtag me-2"></i>
+                                    إيجاد هاشتاجات تريند
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container py-5">
+        <div id="hashtagResults" style="display: none;">
+            <div class="platform-tabs">
+                <div class="platform-tab active" data-platform="instagram">
+                    <i class="fab fa-instagram me-2"></i>إنستغرام
+                </div>
+                <div class="platform-tab" data-platform="twitter">
+                    <i class="fab fa-twitter me-2"></i>تويتر
+                </div>
+                <div class="platform-tab" data-platform="tiktok">
+                    <i class="fab fa-tiktok me-2"></i>تيك توك
+                </div>
+            </div>
+            
+            <div id="hashtagsContainer"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script>
+        document.getElementById('hashtagForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('جاري بحث الهاشتاجات...', 'info');
+            }
+            
+            setTimeout(() => {
+                displayHashtags(data);
+            }, 2000);
+        });
+        
+        function displayHashtags(data) {
+            const hashtags = [
+                `#${data.topic}`,
+                `#${data.topic}_عربي`,
+                `#عروض_${data.topic}`,
+                `#${data.topic}_اونلاين`,
+                `#تسوق`,
+                `#عروض_حصرية`,
+                `#جودة_عالية`,
+                `#السعودية`,
+                `#الإمارات`,
+                `#الخليج`
+            ];
+            
+            document.getElementById('hashtagsContainer').innerHTML = `
+                <div class="text-center">
+                    <h4 class="mb-4">هاشتاجات مقترحة لإنستغرام</h4>
+                    <div class="mb-4">
+                        ${hashtags.map((hashtag, index) => `
+                            <span class="hashtag-item" onclick="copyHashtag('${hashtag}')">
+                                ${hashtag}
+                                ${index < 3 ? '<span class="trending-indicator"></span>' : ''}
+                            </span>
+                        `).join('')}
+                    </div>
+                    <button class="btn btn-primary" onclick="copyAllHashtags()">
+                        <i class="fas fa-copy me-2"></i>نسخ جميع الهاشتاجات
+                    </button>
+                </div>
+            `;
+            
+            document.getElementById('hashtagResults').style.display = 'block';
+            
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('تم إيجاد الهاشتاجات!', 'success');
+            }
+        }
+        
+        function copyHashtag(hashtag) {
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast(`تم نسخ: ${hashtag}`, 'success');
+            }
+        }
+        
+        function copyAllHashtags() {
+            if (window.ArabicAdsApp) {
+                window.ArabicAdsApp.showToast('تم نسخ جميع الهاشتاجات!', 'success');
+            }
+        }
+    </script>
+</body>
+</html>
