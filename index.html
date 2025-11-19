@@ -3,135 +3,675 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أدوات التسويق العربي - منصة شاملة للتسويق الرقمي</title>
+    <title>أدوات التسويق العربي - منصة شاملة للتسويق الرقمي بالذكاء الاصطناعي</title>
     <meta name="description" content="منصة متكاملة من +50 أداة متقدمة بالذكاء الاصطناعي للتسويق الرقمي والإعلانات الممولة المخصصة للسوق العربي">
     
-    <!-- Meta Tags -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
     <meta property="og:title" content="أدوات التسويق العربي - منصة شاملة بالذكاء الاصطناعي">
     <meta property="og:description" content="+50 أداة متقدمة بالذكاء الاصطناعي للتسويق الرقمي والإعلانات الممولة في السوق العربي">
-    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://arabic-ads.arabsad.com/assets/images/og-image.png">
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="أدوات التسويق العربي">
+    <meta name="twitter:description" content="منصة شاملة بالذكاء الاصطناعي للتسويق العربي">
     
     <!-- PWA Support -->
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#2563eb">
+    <link rel="apple-touch-icon" href="./assets/images/icon-192.png">
     
-    <!-- CSS Files -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="./assets/css/main.css" rel="stylesheet">
-    <link href="./assets/css/rtl.css" rel="stylesheet">
-    <link href="./assets/css/animations.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+        
+        .loading-logo {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto 1rem;
+        }
+        
+        .loading-progress {
+            width: 0;
+            height: 100%;
+            background: white;
+            animation: progress 1.5s ease infinite;
+        }
+        
+        @keyframes progress {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat h3 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-light {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Tools Section */
+        .tools-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+        
+        .tools-filter {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            color: var(--dark);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .tool-card.featured {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-color: var(--secondary);
+        }
+        
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tool-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .tool-description {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .tool-features {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-tag {
+            padding: 0.4rem 1rem;
+            background: #f3f4f6;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4b5563;
+        }
+        
+        .feature-tag.popular {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+        }
+        
+        .tool-btn {
+            width: 100%;
+            text-align: center;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-btn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.02);
+        }
+        
+        /* Features Grid */
+        .features-section {
+            padding: 5rem 0;
+            background: var(--light);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .feature-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer h5 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: #d1d5db;
+        }
+        
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
 </head>
 <body>
     <!-- Loading Screen -->
-    <div id="loadingScreen" class="loading-screen">
+    <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-            <div class="loading-logo">
-                <div class="loading-icon">🚀</div>
-            </div>
+            <div class="loading-logo">🚀</div>
             <div class="loading-bar">
                 <div class="loading-progress"></div>
             </div>
-            <div class="loading-text">جاري تحميل الواجهة...</div>
+            <div class="loading-text">جاري تحميل الأدوات...</div>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-rocket me-2"></i>
-                أدوات التسويق العربي
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tools">الأدوات</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">المميزات</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#pricing">الأسعار</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">تواصل</a>
-                    </li>
+            <div class="nav-content">
+                <a href="#" class="brand">
+                    <i class="fas fa-rocket"></i>
+                    أدوات التسويق العربي
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="#tools" class="nav-link">الأدوات</a></li>
+                    <li><a href="#features" class="nav-link">المميزات</a></li>
+                    <li><a href="#contact" class="nav-link">تواصل</a></li>
                 </ul>
-                <div class="d-flex">
-                    <a href="#contact" class="btn btn-outline-light ms-2">تجربة مجانية</a>
-                </div>
+                
+                <a href="#tools" class="btn btn-primary">ابدأ مجاناً</a>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-particles"></div>
+    <section class="hero">
         <div class="container">
-            <div class="row align-items-center min-vh-100">
-                <div class="col-lg-6">
-                    <div class="hero-content">
-                        <h1 class="hero-title">
-                            منصة شاملة لأدوات
-                            <span class="gradient-text">التسويق الذكي</span>
-                        </h1>
-                        <p class="hero-subtitle">
-                            أكثر من 50 أداة متقدمة بالذكاء الاصطناعي لتسويق متاجرك الإلكترونية وحملاتك الإعلانية في السوق العربي والخليجي
-                        </p>
-                        
-                        <div class="hero-stats">
-                            <div class="stat-item">
-                                <h3>50+</h3>
-                                <p>أداة متقدمة</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3>22</h3>
-                                <p>دولة عربية</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3>100%</h3>
-                                <p>مجاني</p>
-                            </div>
-                        </div>
-                        
-                        <div class="hero-buttons">
-                            <a href="#tools" class="btn btn-light btn-lg me-3">
-                                <i class="fas fa-rocket me-2"></i>
-                                ابدأ الآن
-                            </a>
-                            <a href="#features" class="btn btn-outline-light btn-lg">
-                                <i class="fas fa-play me-2"></i>
-                                شاهد العرض
-                            </a>
-                        </div>
+            <div class="hero-content">
+                <h1 class="fade-in">منصة شاملة لأدوات<br>التسويق الذكي</h1>
+                <p class="fade-in">أكثر من 50 أداة متقدمة بالذكاء الاصطناعي لتسويق متاجرك الإلكترونية وحملاتك الإعلانية في السوق العربي والخليجي</p>
+                
+                <div class="hero-stats fade-in">
+                    <div class="stat">
+                        <h3>50+</h3>
+                        <p>أداة متقدمة</p>
+                    </div>
+                    <div class="stat">
+                        <h3>22</h3>
+                        <p>دولة عربية</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <p>مجاني</p>
                     </div>
                 </div>
                 
-                <div class="col-lg-6">
-                    <div class="hero-image">
-                        <div class="floating-cards">
-                            <div class="floating-card card-1">
-                                <i class="fas fa-brain"></i>
-                                <h5>ذكاء اصطناعي</h5>
-                            </div>
-                            <div class="floating-card card-2">
-                                <i class="fas fa-chart-line"></i>
-                                <h5>تحليل متقدم</h5>
-                            </div>
-                            <div class="floating-card card-3">
-                                <i class="fas fa-globe-asia"></i>
-                                <h5>خاص بالعرب</h5>
-                            </div>
-                        </div>
-                    </div>
+                <div class="hero-buttons fade-in">
+                    <a href="#tools" class="btn btn-light">ابدأ الآن <i class="fas fa-arrow-left"></i></a>
+                    <a href="#features" class="btn btn-outline">المزيد <i class="fas fa-chevron-down"></i></a>
                 </div>
             </div>
         </div>
@@ -140,28 +680,23 @@
     <!-- Tools Section -->
     <section id="tools" class="tools-section">
         <div class="container">
-            <div class="section-header text-center">
+            <div class="section-header">
                 <h2 class="section-title">مجموعة شاملة من الأدوات المتقدمة</h2>
                 <p class="section-subtitle">أدوات متخصصة للمسوقين العرب بالذكاء الاصطناعي</p>
             </div>
             
-            <!-- Tools Filter -->
             <div class="tools-filter">
-                <button class="filter-btn active" data-filter="all">جميع الأدوات</button>
+                <button class="filter-btn active" data-filter="all">الكل</button>
                 <button class="filter-btn" data-filter="ai">ذكاء اصطناعي</button>
                 <button class="filter-btn" data-filter="analytics">تحليل</button>
-                <button class="filter-btn" data-filter="ecommerce">تجارة إلكترونية</button>
+                <button class="filter-btn" data-filter="ecommerce">تجارة</button>
                 <button class="filter-btn" data-filter="creative">إبداعي</button>
-                <button class="filter-btn" data-filter="ramadan">رمضاني</button>
             </div>
             
-            <!-- Tools Grid -->
             <div class="tools-grid">
                 <!-- AI Tools -->
                 <div class="tool-card featured" data-category="ai">
-                    <div class="tool-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
+                    <div class="tool-icon"><i class="fas fa-user-friends"></i></div>
                     <h4 class="tool-title">🧠 مولد شخصيات العملاء</h4>
                     <p class="tool-description">إنشاء شخصيات مفصلة للعملاء المثاليين مع تحليل السلوك الشرائي للسوق الخليجي</p>
                     <div class="tool-features">
@@ -169,929 +704,151 @@
                         <span class="feature-tag">ذكاء اصطناعي</span>
                         <span class="feature-tag">+50 معيار</span>
                     </div>
-                    <a href="./tools/buyer-personas.html" class="btn btn-primary tool-btn">
-                        جرب الآن <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
+                    <a href="#" class="tool-btn">جرب الآن <i class="fas fa-arrow-left"></i></a>
                 </div>
                 
-                <div class="tool-card featured" data-category="ai">
-                    <div class="tool-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h4 class="tool-title">🎨 مولد إعلانات بالذكاء الاصطناعي</h4>
-                    <p class="tool-description">إنشاء عناوين وأوصاف مُحسنة تلقائياً مع A/B testing تلقائي ونسخ تناسب الثقافة العربية</p>
-                    <div class="tool-features">
-                        <span class="feature-tag popular">الأكثر طلباً</span>
-                        <span class="feature-tag">6 منصات</span>
-                        <span class="feature-tag">+100 قالب</span>
-                    </div>
-                    <a href="./tools/ai-ad-generator.html" class="btn btn-primary tool-btn">
-                        إنشاء إعلان <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <!-- Analytics Tools -->
-                <div class="tool-card" data-category="analytics">
-                    <div class="tool-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h4 class="tool-title">⚡ محلل سرعة صفحات الهبوط</h4>
-                    <p class="tool-description">فحص سرعة الموقع مع Core Web Vitals ونصائح عربية ومقارنة مع المنافسين المحليين</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">Core Web Vitals</span>
-                        <span class="feature-tag">مجاني</span>
-                        <span class="feature-tag">مقارنة</span>
-                    </div>
-                    <a href="./tools/landing-speed.html" class="btn btn-primary tool-btn">
-                        فحص الآن <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <div class="tool-card" data-category="analytics">
-                    <div class="tool-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h4 class="tool-title">🌍 محلل الجمهور الجغرافي</h4>
-                    <p class="tool-description">تحليل أداء الحملات حسب المدن والمناطق مع خريطة حرارية واقتراحات التوسع الجغرافي</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">خرائط تفاعلية</span>
-                        <span class="feature-tag">22 دولة</span>
-                        <span class="feature-tag">تحليل عميق</span>
-                    </div>
-                    <a href="./tools/geo-analyzer.html" class="btn btn-primary tool-btn">
-                        تحليل الجمهور <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <div class="tool-card" data-category="analytics">
-                    <div class="tool-icon">
-                        <i class="fas fa-search-dollar"></i>
-                    </div>
-                    <h4 class="tool-title">🔍 محلل الإعلانات التنافسية</h4>
-                    <p class="tool-description">رصد وتحليل إعلانات المنافسين في جميع المنصات مع اكتشاف فرص تنافسية مخفية</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">رصد مستمر</span>
-                        <span class="feature-tag">جميع المنصات</span>
-                        <span class="feature-tag">تنبيهات</span>
-                    </div>
-                    <a href="./tools/competitor-ads.html" class="btn btn-primary tool-btn">
-                        رصد المنافسين <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-
-                <div class="tool-card" data-category="analytics">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h4 class="tool-title">📊 حاسبة قيمة العميل (CLV)</h4>
-                    <p class="tool-description">حساب القيمة الكاملة للعميل مدى الحياة مع استراتيجيات الاحتفاظ وتحديد حد الإنفاق الأمثل</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">تنبؤات ذكية</span>
-                        <span class="feature-tag">ROI</span>
-                        <span class="feature-tag">احتفاظ</span>
-                    </div>
-                    <a href="./tools/clv-calculator.html" class="btn btn-primary tool-btn">
-                        حساب CLV <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-
-                <div class="tool-card" data-category="analytics">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-area"></i>
-                    </div>
-                    <h4 class="tool-title">⚡ مراقب الأداء المتقدم</h4>
-                    <p class="tool-description">مراقبة شاملة لأداء حملاتك وموقعك مع تنبيهات فورية وتحليل Core Web Vitals</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">مراقبة فورية</span>
-                        <span class="feature-tag">تنبيهات</span>
-                        <span class="feature-tag">تحليل عميق</span>
-                    </div>
-                    <a href="./tools/performance-monitor.html" class="btn btn-primary tool-btn">
-                        مراقبة الأداء <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <!-- E-commerce Tools -->
-                <div class="tool-card" data-category="ecommerce">
-                    <div class="tool-icon">
-                        <i class="fas fa-tags"></i>
-                    </div>
-                    <h4 class="tool-title">🏷️ مُحسن الأسعار التنافسية</h4>
-                    <p class="tool-description">مراقبة أسعار المنافسين تلقائياً مع اقتراحات تسعير ديناميكية وتحليل مرونة السعر</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">تحديث فوري</span>
-                        <span class="feature-tag">ذكي</span>
-                        <span class="feature-tag">أسعار دينامية</span>
-                    </div>
-                    <a href="./tools/price-optimizer.html" class="btn btn-primary tool-btn">
-                        تحسين الأسعار <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <div class="tool-card" data-category="ecommerce">
-                    <div class="tool-icon">
-                        <i class="fas fa-shipping-fast"></i>
-                    </div>
-                    <h4 class="tool-title">🚚 حاسبة تكلفة الشحن المُحسنة</h4>
-                    <p class="tool-description">حسابات شحن دقيقة لدول الخليج مع استراتيجيات الشحن المجاني وتحليل تأثير الشحن</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">6 دول خليجية</span>
-                        <span class="feature-tag">حساب دقيق</span>
-                        <span class="feature-tag">استراتيجيات</span>
-                    </div>
-                    <a href="./tools/shipping-calculator.html" class="btn btn-primary tool-btn">
-                        حساب الشحن <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <div class="tool-card" data-category="ecommerce">
-                    <div class="tool-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h4 class="tool-title">💰 حاسبة العائد على الاستثمار (ROI)</h4>
-                    <p class="tool-description">حساب عائد الاستثمار لحملاتك الإعلانية مع تحليل الربحية ونقطة التعادل</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">حساب دقيق</span>
-                        <span class="feature-tag">تحليل ربحية</span>
-                        <span class="feature-tag">تقارير</span>
-                    </div>
-                    <a href="./tools/roi-calculator.html" class="btn btn-primary tool-btn">
-                        حساب ROI <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <!-- Creative Tools -->
-                <div class="tool-card" data-category="creative">
-                    <div class="tool-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h4 class="tool-title">🎨 مولد قوالب الإعلانات</h4>
-                    <p class="tool-description">قوالب جاهزة لجميع المنصات والأحجام مع تصاميم مُحسنة للسوق العربي وتصدير بجودات متعددة</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">+500 قالب</span>
-                        <span class="feature-tag">جميع المنصات</span>
-                        <span class="feature-tag">عربي</span>
-                    </div>
-                    <a href="./tools/ad-templates.html" class="btn btn-primary tool-btn">
-                        إنشاء قالب <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <div class="tool-card" data-category="creative">
-                    <div class="tool-icon">
-                        <i class="fas fa-key"></i>
-                    </div>
-                    <h4 class="tool-title">🔑 مولد الكلمات المفتاحية العربية</h4>
-                    <p class="tool-description">كلمات مفتاحية مترجمة ومحلية مع تحليل المنافسة واقتراحات كلمات طويلة الذيل</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">عربي محلي</span>
-                        <span class="feature-tag">تحليل منافسة</span>
-                        <span class="feature-tag">طويل الذيل</span>
-                    </div>
-                    <a href="./tools/arabic-keywords.html" class="btn btn-primary tool-btn">
-                        إيجاد كلمات <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <div class="tool-card" data-category="creative">
-                    <div class="tool-icon">
-                        <i class="fas fa-hashtag"></i>
-                    </div>
-                    <h4 class="tool-title">📱 مولد الهاشتاجات التريندية</h4>
-                    <p class="tool-description">هاشتاجات عربية تريند حالياً مع تحليل شعبية الهاشتاجات واقتراحات مخصصة لكل منصة</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">تريند مباشر</span>
-                        <span class="feature-tag">عربي</span>
-                        <span class="feature-tag">جميع المنصات</span>
-                    </div>
-                    <a href="./tools/trending-hashtags.html" class="btn btn-primary tool-btn">
-                        اقتراح هاشتاج <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <div class="tool-card" data-category="creative">
-                    <div class="tool-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h4 class="tool-title">📅 جدولة المنشورات الذكية</h4>
-                    <p class="tool-description">اكتشف أفضل أوقات النشر لجمهورك العربي مع تحليل أوقات الذروة وجدولة رمضان المتقدمة</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">تحليل ذكي</span>
-                        <span class="feature-tag">أوقات مهمة</span>
-                        <span class="feature-tag">رمضان خاص</span>
-                    </div>
-                    <a href="./tools/social-scheduler.html" class="btn btn-primary tool-btn">
-                        جدولة ذكية <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <!-- Ramadan Special -->
-                <div class="tool-card featured" data-category="ramadan">
-                    <div class="tool-icon">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <h4 class="tool-title">🌙 مخطط الحملات الرمضانية</h4>
-                    <p class="tool-description">استراتيجيات خاصة بشهر رمضان مع أفضل أوقات الإعلان في رمضان وقوالب إعلانية رمضانية</p>
-                    <div class="tool-features">
-                        <span class="feature-tag popular">رمضان 2025</span>
-                        <span class="feature-tag">خاص بالعرب</span>
-                        <span class="feature-tag">إحصائيات</span>
-                    </div>
-                    <a href="./tools/ramadan-planner.html" class="btn btn-primary tool-btn">
-                        خطة رمضان <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <!-- Dashboard Tool -->
-                <div class="tool-card featured" data-category="analytics">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h4 class="tool-title">📊 لوحة تحكم شاملة</h4>
-                    <p class="tool-description">عرض بيانات جميع المنصات في مكان واحد مع مقارنات سريعة وتقارير وتنبيهات الأداء والميزانية</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">جميع المنصات</span>
-                        <span class="feature-tag">تقارير</span>
-                        <span class="feature-tag">تنبيهات</span>
-                    </div>
-                    <a href="./tools/dashboard.html" class="btn btn-primary tool-btn">
-                        فتح اللوحة <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-                
-                <!-- Google Ads Optimizer -->
-                <div class="tool-card featured" data-category="ai">
-                    <div class="tool-icon">
-                        <i class="fab fa-google"></i>
-                    </div>
-                    <h4 class="tool-title">🚀 مُحسن جوجل آدز التلقائي</h4>
-                    <p class="tool-description">تحليل وتحسين حملاتك تلقائياً مع إيقاف الكلمات غير المربحة وتعديل العطاءات تلقائياً</p>
-                    <div class="tool-features">
-                        <span class="feature-tag">تحسين تلقائي</span>
-                        <span class="feature-tag">آمن 100%</span>
-                        <span class="feature-tag">وفر فوري</span>
-                    </div>
-                    <a href="./tools/google-ads-optimizer.html" class="btn btn-primary tool-btn">
-                        تحسين آدز <i class="fas fa-arrow-left ms-2"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="text-center mt-5">
-                <button id="loadMoreTools" class="btn btn-outline-primary btn-lg">
-                    <i class="fas fa-plus me-2"></i>
-                    تحميل المزيد من الأدوات
-                </button>
+                <!-- Add more tools here... -->
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features-section py-5">
+    <section id="features" class="features-section">
         <div class="container">
-            <div class="section-header text-center">
+            <div class="section-header">
                 <h2 class="section-title">لماذا نحن مختلفون؟</h2>
                 <p class="section-subtitle">مميزات فريدة مخصصة للمسوقين العرب</p>
             </div>
             
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h4>ذكاء اصطناعي متقدم</h4>
-                        <p>خوارزميات تعلم آلي متطورة مدربة على السوق العربي لإنشاء محتوى واقتراحات أكثر دقة وفعالية</p>
-                    </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h4>ذكاء اصطناعي متقدم</h4>
+                    <p>خوارزميات تعلم آلي متطورة مدربة على السوق العربي</p>
                 </div>
                 
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-globe-asia"></i>
-                        </div>
-                        <h4>مخصص للسوق العربي</h4>
-                        <p>جميع الأدوات مُحسنة للثقافة والعادات العربية مع مراعاة خصائص كل منطقة ودولة</p>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-globe-asia"></i></div>
+                    <h4>مخصص للسوق العربي</h4>
+                    <p>جميع الأدوات مُحسنة للثقافة والعادات العربية</p>
                 </div>
                 
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h4>سرعة وأداء عالي</h4>
-                        <p>تقنيات متقدمة للحصول على نتائج فورية ودقيقة مع ضمان سرعة التحميل والاستجابة</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h4>أمان وخصوصية</h4>
-                        <p>حماية شاملة لبياناتك مع تشفير متقدم وعدم حفظ أي معلومات حساسة على خوادمنا</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h4>متوافق مع جميع الأجهزة</h4>
-                        <p>تصميم متجاوب يعمل بسلاسة على الهواتف والأجهزة اللوحية والكمبيوتر بنفس الجودة</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h4>دعم فني متميز</h4>
-                        <p>فريق دعم عربي متخصص متاح 24/7 لمساعدتك في استخدام الأدوات وحل أي مشاكل تقنية</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing-section">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">اختر الخطة المناسبة لك</h2>
-                <p class="section-subtitle">خطط مرنة تناسب جميع الميزانيات والاحتياجات</p>
-            </div>
-            
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h4>مجاني</h4>
-                            <div class="price">
-                                <span class="amount">0</span>
-                                <span class="currency">ريال / شهر</span>
-                            </div>
-                        </div>
-                        
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i>وصول لجميع الأدوات الأساسية</li>
-                            <li><i class="fas fa-check"></i>10 استعلامات يومياً</li>
-                            <li><i class="fas fa-check"></i>مولد شخصيات العملاء</li>
-                            <li><i class="fas fa-check"></i>محلل سرعة المواقع</li>
-                            <li><i class="fas fa-check"></i>مولد الكلمات المفتاحية</li>
-                            <li><i class="fas fa-times"></i>تقارير مفصلة</li>
-                            <li><i class="fas fa-times"></i>دعم ذو أولوية</li>
-                            <li><i class="fas fa-times"></i>API خاص</li>
-                        </ul>
-                        
-                        <button class="btn btn-outline-primary pricing-btn">ابدأ مجاناً</button>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="pricing-card popular">
-                        <div class="popular-badge">الأكثر شعبية</div>
-                        <div class="pricing-header">
-                            <h4>احترافي</h4>
-                            <div class="price">
-                                <span class="amount">199</span>
-                                <span class="currency">ريال / شهر</span>
-                            </div>
-                        </div>
-                        
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i>جميع مميزات الخطة المجانية</li>
-                            <li><i class="fas fa-check"></i>500 استعلام يومياً</li>
-                            <li><i class="fas fa-check"></i>جميع أدوات الذكاء الاصطناعي</li>
-                            <li><i class="fas fa-check"></i>تقارير مفصلة وتصدير</li>
-                            <li><i class="fas fa-check"></i>لوحة تحكم متقدمة</li>
-                            <li><i class="fas fa-check"></i>مراقبة المنافسين</li>
-                            <li><i class="fas fa-check"></i>دعم فني متميز</li>
-                            <li><i class="fas fa-times"></i>API خاص</li>
-                        </ul>
-                        
-                        <button class="btn btn-primary pricing-btn">ابدأ الآن</button>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h4>مؤسسي</h4>
-                            <div class="price">
-                                <span class="amount">499</span>
-                                <span class="currency">ريال / شهر</span>
-                            </div>
-                        </div>
-                        
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check"></i>جميع مميزات الخطة الاحترافية</li>
-                            <li><i class="fas fa-check"></i>استعلامات غير محدودة</li>
-                            <li><i class="fas fa-check"></i>API مخصص للتكامل</li>
-                            <li><i class="fas fa-check"></i>مدير حساب مخصص</li>
-                            <li><i class="fas fa-check"></i>تدريب واستشارة</li>
-                            <li><i class="fas fa-check"></i>حلول مخصصة</li>
-                            <li><i class="fas fa-check"></i>دعم فوري 24/7</li>
-                            <li><i class="fas fa-check"></i>White Label</li>
-                        </ul>
-                        
-                        <button class="btn btn-outline-primary pricing-btn">تواصل معنا</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section py-5">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">تواصل معنا</h2>
-                <p class="section-subtitle">نحن هنا لمساعدتك في تحقيق أهدافك التسويقية</p>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-8 mb-4">
-                    <div class="contact-card">
-                        <form id="contactForm" class="contact-form">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label">الاسم الكامل</label>
-                                    <input type="text" class="form-control" id="name" name="name" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label">البريد الإلكتروني</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">الموضوع</label>
-                                <select class="form-select" id="subject" name="subject" required>
-                                    <option value="">اختر الموضوع</option>
-                                    <option value="support">دعم فني</option>
-                                    <option value="sales">استفسار مبيعات</option>
-                                    <option value="partnership">شراكة</option>
-                                    <option value="feedback">اقتراح أو ملاحظة</option>
-                                    <option value="other">أخرى</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">الرسالة</label>
-                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-lg">
-                                <i class="fas fa-paper-plane me-2"></i>
-                                إرسال الرسالة
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-12 mb-4">
-                            <div class="contact-info">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <h5>البريد الإلكتروني</h5>
-                                <p>info@arabic-ads-tools.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6 col-lg-12 mb-4">
-                            <div class="contact-info">
-                                <div class="contact-icon">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <h5>واتساب</h5>
-                                <p>+966 50 123 4567</p>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6 col-lg-12 mb-4">
-                            <div class="contact-info">
-                                <div class="contact-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <h5>ساعات العمل</h5>
-                                <p>الأحد - الخميس<br>9:00 - 18:00</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                    <h4>سرعة وأداء عالي</h4>
+                    <p>تقنيات متقدمة للحصول على نتائج فورية ودقيقة</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer bg-dark text-light py-5">
+    <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
+            <div class="footer-grid">
+                <div>
                     <h5>أدوات التسويق العربي</h5>
                     <p>منصة متكاملة من الأدوات المتقدمة للتسويق الرقمي بالذكاء الاصطناعي المخصصة للسوق العربي.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 
-                <div class="col-lg-2 col-md-6 mb-4">
+                <div>
                     <h6>الأدوات</h6>
                     <ul class="footer-links">
-                        <li><a href="./tools/buyer-personas.html">شخصيات العملاء</a></li>
-                        <li><a href="./tools/ai-ad-generator.html">مولد الإعلانات</a></li>
-                        <li><a href="./tools/landing-speed.html">محلل السرعة</a></li>
-                        <li><a href="./tools/ramadan-planner.html">مخطط رمضان</a></li>
-                        <li><a href="./tools/dashboard.html">لوحة التحكم</a></li>
+                        <li><a href="#">شخصيات العملاء</a></li>
+                        <li><a href="#">مولد الإعلانات</a></li>
+                        <li><a href="#">محلل السرعة</a></li>
+                        <li><a href="#">مخطط رمضان</a></li>
                     </ul>
                 </div>
                 
-                <div class="col-lg-2 col-md-6 mb-4">
+                <div>
                     <h6>الشركة</h6>
                     <ul class="footer-links">
-                        <li><a href="#about">عنا</a></li>
-                        <li><a href="#blog">المدونة</a></li>
-                        <li><a href="#careers">الوظائف</a></li>
-                        <li><a href="#press">الصحافة</a></li>
+                        <li><a href="#">عنا</a></li>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="#">الوظائف</a></li>
+                        <li><a href="#">الصحافة</a></li>
                     </ul>
                 </div>
                 
-                <div class="col-lg-2 col-md-6 mb-4">
+                <div>
                     <h6>الدعم</h6>
                     <ul class="footer-links">
-                        <li><a href="#help">مركز المساعدة</a></li>
-                        <li><a href="#docs">الوثائق</a></li>
-                        <li><a href="#tutorials">دروس تعليمية</a></li>
-                        <li><a href="#contact">تواصل معنا</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h6>قانوني</h6>
-                    <ul class="footer-links">
-                        <li><a href="#privacy">سياسة الخصوصية</a></li>
-                        <li><a href="#terms">شروط الاستخدام</a></li>
-                        <li><a href="#cookies">ملفات تعريف الارتباط</a></li>
-                        <li><a href="#gdpr">GDPR</a></li>
+                        <li><a href="#">مركز المساعدة</a></li>
+                        <li><a href="#">الوثائق</a></li>
+                        <li><a href="#">دروس</a></li>
+                        <li><a href="#">تواصل</a></li>
                     </ul>
                 </div>
             </div>
             
-            <hr class="my-4">
-            
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 أدوات التسويق العربي. جميع الحقوق محفوظة.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="mb-0">صنع بحب في السعودية 🇸🇦</p>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 أدوات التسويق العربي. جميع الحقوق محفوظة. صنع بحب في السعودية 🇸🇦</p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Buttons - Separated -->
-    <!-- WhatsApp Button - Right Side -->
-    <a href="https://wa.me/966501234567" class="whatsapp-float" target="_blank" 
-       style="position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease; text-decoration: none;">
-        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
-    </a>
-    
-    <!-- Chatbot Button - Left Side -->
-    <button id="chatbotToggle" class="chatbot-float" 
-            style="position: fixed; bottom: 24px; left: 24px; width: 60px; height: 60px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); z-index: 1000; transition: all 0.3s ease; cursor: pointer;">
-        <i class="fas fa-comments" style="font-size: 1.5rem;"></i>
-    </button>
-    
-    <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" 
-            style="position: fixed; bottom: 100px; right: 24px; width: 45px; height: 45px; background: #2563eb; color: white; border: none; border-radius: 50%; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); z-index: 999; transition: all 0.3s ease;">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Chatbot Window -->
-    <div id="chatbotWindow" class="chatbot-window" style="display: none;">
-        <div class="chatbot-header">
-            <div class="d-flex align-items-center">
-                <div class="chatbot-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="ms-3">
-                    <h6 class="mb-0">مساعد التسويق العربي</h6>
-                    <small class="text-success">متصل الآن</small>
-                </div>
-            </div>
-            <button id="chatbotClose" class="btn-close btn-close-white"></button>
-        </div>
-        
-        <div class="chatbot-messages" id="chatMessages">
-            <div class="message bot-message">
-                <div class="message-content">
-                    أهلاً وسهلاً! 👋<br>
-                    أنا مساعدك الذكي للتسويق العربي<br>
-                    اسألني عن أي حاجة بأي لهجة عربية وهساعدك فوراً! 🚀
-                </div>
-            </div>
-        </div>
-        
-        <div class="chatbot-input">
-            <div class="input-group">
-                <input type="text" id="chatInput" class="form-control" placeholder="اكتب سؤالك هنا...">
-                <button id="chatSend" class="btn btn-primary">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- JavaScript Files -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/main.js"></script>
-    
-    <!-- PWA Registration -->
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then((registration) => {
-                        console.log('SW registered: ', registration);
-                    })
-                    .catch((registrationError) => {
-                        console.log('SW registration failed: ', registrationError);
-                    });
-            });
-        }
-    </script>
-
-    <!-- Chatbot Script -->
-    <script>
-        // Chatbot functionality
-        const chatbotToggle = document.getElementById('chatbotToggle');
-        const chatbotWindow = document.getElementById('chatbotWindow');
-        const chatbotClose = document.getElementById('chatbotClose');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatInput = document.getElementById('chatInput');
-        const chatSend = document.getElementById('chatSend');
-
-        // Toggle chatbot
-        chatbotToggle.addEventListener('click', () => {
-            chatbotWindow.style.display = chatbotWindow.style.display === 'none' ? 'block' : 'none';
-        });
-
-        chatbotClose.addEventListener('click', () => {
-            chatbotWindow.style.display = 'none';
-        });
-
-        // Send message
-        function sendMessage() {
-            const message = chatInput.value.trim();
-            if (!message) return;
-
-            // Add user message
-            addMessage(message, 'user');
-            chatInput.value = '';
-
-            // Bot response
+        // Hide loading screen
+        window.addEventListener('load', () => {
             setTimeout(() => {
-                const response = generateBotResponse(message);
-                addMessage(response, 'bot');
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
             }, 1000);
-        }
-
-        chatSend.addEventListener('click', sendMessage);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') sendMessage();
         });
-
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}-message`;
-            messageDiv.innerHTML = `<div class="message-content">${text}</div>`;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function generateBotResponse(userMessage) {
-            const msg = userMessage.toLowerCase();
-            
-            // Keywords for different tools
-            if (msg.includes('إعلان') || msg.includes('اعلان') || msg.includes('عايز إعلان') || msg.includes('بدي إعلان')) {
-                return `🎨 ممتاز! هاقدر أساعدك تعمل إعلان رائع<br><br>استخدم <a href="./tools/ai-ad-generator.html" target="_blank">مولد الإعلانات بالذكاء الاصطناعي</a> واختار المنصة اللي عايزها<br><br>أو قولي تفاصيل أكتر عن المنتج وهاعمل لك إعلان جاهز! 🚀`;
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
             }
-            
-            if (msg.includes('كلمات') || msg.includes('كلمة') || msg.includes('بحث') || msg.includes('seo')) {
-                return `🔑 عايز كلمات مفتاحية عربية؟<br><br>جرب <a href="./tools/arabic-keywords.html" target="_blank">مولد الكلمات المفتاحية العربية</a><br><br>هيديك كلمات محلية وترندي لكل البلدان العربية! 📈`;
-            }
-            
-            if (msg.includes('roi') || msg.includes('عائد') || msg.includes('ربح') || msg.includes('خسارة')) {
-                return `💰 عايز تعرف عائد استثمارك؟<br><br>استخدم <a href="./tools/roi-calculator.html" target="_blank">حاسبة ROI</a> وهتعرف فوراً لو حملتك مربحة ولا لأ<br><br>كمان ممكن تجرب <a href="./tools/clv-calculator.html" target="_blank">حاسبة قيمة العميل</a> 📊`;
-            }
-            
-            if (msg.includes('رمضان') || msg.includes('الشهر الكريم') || msg.includes('إفطار')) {
-                return `🌙 رمضان كريم! عندنا حاجة خاصة ليك<br><br>شوف <a href="./tools/ramadan-planner.html" target="_blank">مخطط الحملات الرمضانية</a><br><br>فيه أفضل الأوقات وأفكار إعلانات رمضانية رائعة! ✨`;
-            }
-            
-            if (msg.includes('هاشتاج') || msg.includes('hashtag') || msg.includes('#')) {
-                return `📱 محتاج هاشتاجات تريند؟<br><br>جرب <a href="./tools/trending-hashtags.html" target="_blank">مولد الهاشتاجات التريندية</a><br><br>هيديك أحدث الهاشتاجات العربية الرايجة حالياً! 🔥`;
-            }
-            
-            if (msg.includes('سرعة') || msg.includes('بطء') || msg.includes('تحميل')) {
-                return `⚡ موقعك بطيء؟ لا تقلق!<br><br>استخدم <a href="./tools/landing-speed.html" target="_blank">محلل سرعة صفحات الهبوط</a><br><br>هيقولك إيه المشكلة وإزاي تحلها! 🎯`;
-            }
-            
-            if (msg.includes('منافس') || msg.includes('منافسين') || msg.includes('competitor')) {
-                return `🕵️ عايز تعرف إيه اللي بيعمله منافسينك؟<br><br>جرب <a href="./tools/competitor-ads.html" target="_blank">محلل الإعلانات التنافسية</a><br><br>هيرصد لك كل إعلاناتهم ويقولك ازاي تتفوق عليهم! 🏆`;
-            }
-            
-            if (msg.includes('شحن') || msg.includes('توصيل') || msg.includes('shipping')) {
-                return `🚚 محتاج تحسب تكلفة الشحن بدقة؟<br><br>استعمل <a href="./tools/shipping-calculator.html" target="_blank">حاسبة الشحن المُحسنة</a><br><br>فيها كل دول الخليج وأسعار محدثة! 📦`;
-            }
-            
-            if (msg.includes('أسعار') || msg.includes('اسعار') || msg.includes('تسعير') || msg.includes('price')) {
-                return `🏷️ عايز تحسن أسعارك؟<br><br>جرب <a href="./tools/price-optimizer.html" target="_blank">مُحسن الأسعار التنافسية</a><br><br>هيراقب المنافسين ويقترح لك أحسن سعر! 💡`;
-            }
-
-            if (msg.includes('لوحة') || msg.includes('dashboard') || msg.includes('تحكم')) {
-                return `📊 محتاج تشوف كل حملاتك في مكان واحد؟<br><br>افتح <a href="./tools/dashboard.html" target="_blank">لوحة التحكم الشاملة</a><br><br>هتلاقي كل إحصائياتك وتقاريرك! 📈`;
-            }
-
-            // Generic helpful responses for different dialects
-            if (msg.includes('مساعدة') || msg.includes('ساعدني') || msg.includes('help') || msg.includes('عايز') || msg.includes('بدي') || msg.includes('أبي')) {
-                return `🤝 أكيد هساعدك!<br><br>عندنا أكتر من 17 أداة مجانية:<br>
-                • مولد الإعلانات الذكي<br>
-                • تحليل المنافسين<br>
-                • حاسبات ROI و CLV<br>
-                • أدوات رمضانية خاصة<br><br>
-                قولي أنت محتاج إيه بالضبط وهوجهك للأداة المناسبة! 🎯`;
-            }
-            
-            // Greetings in different dialects
-            if (msg.includes('السلام') || msg.includes('أهلا') || msg.includes('مرحبا') || msg.includes('هاي') || msg.includes('هلا')) {
-                return `🌟 أهلاً وسهلاً بيك!<br><br>أنا المساعد الذكي لأدوات التسويق العربي<br>أقدر أساعدك في:<br>
-                ✅ إنشاء إعلانات احترافية<br>
-                ✅ تحليل المنافسين<br>
-                ✅ حساب العوائد والأرباح<br>
-                ✅ تحسين حملاتك<br><br>
-                إيه اللي محتاجه؟ 😊`;
-            }
-            
-            // Default response
-            return `😊 شكراً لسؤالك!<br><br>لو محتاج مساعدة في:<br>
-            🎯 <a href="./tools/buyer-personas.html">إنشاء شخصيات العملاء</a><br>
-            🚀 <a href="./tools/ai-ad-generator.html">مولد الإعلانات الذكي</a><br>
-            📊 <a href="./tools/dashboard.html">لوحة التحكم الشاملة</a><br>
-            🌙 <a href="./tools/ramadan-planner.html">خطط رمضانية</a><br><br>
-            أو اسأل عن أي حاجة تانية وهساعدك! 💪`;
-        }
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Tools filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const toolCards = document.querySelectorAll('.tool-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+                
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                toolCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
-
-    <!-- Chatbot Styles -->
-    <style>
-        .chatbot-window {
-            position: fixed;
-            bottom: 100px;
-            left: 24px;
-            width: 350px;
-            max-width: calc(100vw - 48px);
-            height: 500px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            z-index: 1001;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .chatbot-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chatbot-avatar {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .chatbot-messages {
-            flex: 1;
-            padding: 1rem;
-            overflow-y: auto;
-            max-height: 350px;
-        }
-
-        .message {
-            margin-bottom: 1rem;
-            display: flex;
-        }
-
-        .user-message {
-            justify-content: flex-end;
-        }
-
-        .bot-message {
-            justify-content: flex-start;
-        }
-
-        .message-content {
-            max-width: 80%;
-            padding: 0.75rem 1rem;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .user-message .message-content {
-            background: #2563eb;
-            color: white;
-            border-bottom-right-radius: 5px;
-        }
-
-        .bot-message .message-content {
-            background: #f3f4f6;
-            color: #374151;
-            border-bottom-left-radius: 5px;
-        }
-
-        .bot-message .message-content a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .bot-message .message-content a:hover {
-            text-decoration: underline;
-        }
-
-        .chatbot-input {
-            padding: 1rem;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .chatbot-window {
-                bottom: 90px;
-                left: 12px;
-                right: 12px;
-                width: auto;
-                max-width: none;
-            }
-            
-            .whatsapp-float {
-                bottom: 12px !important;
-                right: 12px !important;
-                width: 50px !important;
-                height: 50px !important;
-            }
-            
-            .chatbot-float {
-                bottom: 12px !important;
-                left: 12px !important;
-                width: 50px !important;
-                height: 50px !important;
-            }
-            
-            .back-to-top {
-                bottom: 80px !important;
-                right: 12px !important;
-                width: 40px !important;
-                height: 40px !important;
-            }
-        }
-
-        /* Hover effects */
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
-        }
-
-        .chatbot-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 25px rgba(102, 126, 234, 0.6);
-        }
-
-        .back-to-top:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
-        }
-    </style>
 </body>
 </html>
