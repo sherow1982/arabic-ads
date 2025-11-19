@@ -3,194 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>social media ads | أدوات التسويق العربي</title>
+    <title>📱 إعلانات وسائل التواصل | أدوات التسويق العربي</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Cairo', sans-serif;
-            line-height: 1.6;
-            color: #1f2937;
-            background: #f9fafb;
-        }
-        .navbar {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-sm);
-            padding: 1rem 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        .nav-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .brand {
-            font-size: 1.5rem;
-            font-weight: 900;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-        .hero {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            padding-top: 100px;
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        .btn-light {
-            background: white;
-            color: var(--primary);
-        }
-        .btn-light:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        .content-section {
-            padding: 5rem 0;
-            background: white;
-        }
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #1f2937;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
-        }
-        .feature-card p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-        .footer {
-            background: #1f2937;
-            color: white;
-            padding: 3rem 0 1rem;
-            text-align: center;
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .features-grid { grid-template-columns: 1fr; }
-        }
+        :root{--primary:#2563eb;--gradient:linear-gradient(135deg,#667eea 0%,#764ba2 100%);--shadow:0 4px 20px rgba(0,0,0,0.1)}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Cairo',sans-serif;background:#f0f2f5;color:#1f2937;line-height:1.6}
+        .navbar{background:#fff;box-shadow:var(--shadow);padding:1.5rem 2rem;position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center}
+        .navbar a{text-decoration:none;color:#1f2937;font-weight:700;display:flex;align-items:center;gap:0.5rem}
+        .navbar a.back{color:var(--primary)}
+        .container{max-width:1000px;margin:0 auto;padding:2rem}
+        .hero{background:var(--gradient);color:#fff;padding:3rem 2rem;border-radius:16px;text-align:center;margin-bottom:3rem}
+        .hero h1{font-size:2.5rem;font-weight:900;margin-bottom:1rem}
+        .hero p{font-size:1.1rem;opacity:0.9}
+        .content{background:#fff;border-radius:16px;padding:2rem;box-shadow:var(--shadow);margin-bottom:2rem}
+        .section-title{font-size:1.8rem;font-weight:900;color:var(--primary);margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:3px solid var(--gradient)}
+        .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0}
+        .feature-card{background:linear-gradient(135deg,#f3f4f6 0%,#ffffff 100%);padding:1.5rem;border-radius:12px;border-left:4px solid var(--primary);transition:all 0.3s}
+        .feature-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+        .feature-card i{color:var(--primary);font-size:2rem;margin-bottom:1rem}
+        .feature-card h3{color:#1f2937;font-weight:700;margin-bottom:0.5rem}
+        .btn{background:var(--gradient);color:#fff;padding:1rem 2rem;border-radius:10px;border:none;cursor:pointer;font-weight:700;font-size:1rem;transition:all 0.3s;text-decoration:none;display:inline-block}
+        .btn:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(0,0,0,0.15)}
+        .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
+        .stat{background:#f3f4f6;padding:1.5rem;border-radius:12px;text-align:center}
+        .stat-number{font-size:2rem;font-weight:900;color:var(--primary)}
+        .cta{background:var(--gradient);color:#fff;padding:3rem;border-radius:16px;text-align:center;margin:2rem 0}
+        .cta h2{font-size:2rem;margin-bottom:1rem}
+        .footer{background:#1f2937;color:#fff;padding:2rem;text-align:center;margin-top:3rem}
+        @media(max-width:768px){.hero h1{font-size:1.8rem}.container{padding:1rem}.features{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="../index.html" class="brand">
-                    <i class="fas fa-rocket"></i> أدوات التسويق العربي
-                </a>
-            </div>
-        </div>
+        <a href="../index.html" class="back"><i class="fas fa-arrow-left"></i> العودة للرئيسية</a>
+        <a href="#"><i class="fas fa-rocket"></i> أدوات التسويق العربي</a>
     </nav>
-
-    <section class="hero">
-        <div class="container">
-            <h1>social media ads</h1>
-            <p>خدمات تسويق رقمي احترافية مخصصة للسوق العربي</p>
-            <a href="#contact" class="btn btn-light">ابدأ الآن <i class="fas fa-arrow-left"></i></a>
+    <div class="container">
+        <div class="hero">
+            <h1>📱 📱 إعلانات وسائل التواصل</h1>
+            <p>حملات إعلانية فعالة على فيسبوك وإنستجرام</p>
         </div>
-    </section>
-
-    <section class="content-section">
-        <div class="container">
-            <h2 class="section-title">مميزات الخدمة</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>نتائج مضمونة</h3>
-                    <p>نحقق أهدافك التسويقية بكفاءة عالية ونتائج قابلة للقياس</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-users"></i></div>
-                    <h3>فريق محترف</h3>
-                    <p>خبراء تسويق متخصصون في السوق العربي والخليجي</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
-                    <h3>تنفيذ سريع</h3>
-                    <p>نبدأ العمل خلال 24 ساعة من التعاقد</p>
-                </div>
+        <div class="content">
+            <h2 class="section-title">المميزات الرئيسية</h2>
+            <div class="features">
+                <div class="feature-card"><i class="fas fa-check-circle"></i><h3>دقة عالية</h3><p>نتائج محسوبة بدقة 100%</p></div>
+                <div class="feature-card"><i class="fas fa-bolt"></i><h3>سرعة البرق</h3><p>معالجة فورية للبيانات</p></div>
+                <div class="feature-card"><i class="fas fa-shield-alt"></i><h3>آمن تماماً</h3><p>بدون حفظ البيانات الشخصية</p></div>
+            </div>
+            <div class="stats">
+                <div class="stat"><div class="stat-number">100%</div><div>دقة</div></div>
+                <div class="stat"><div class="stat-number">&lt;1s</div><div>سرعة معالجة</div></div>
+                <div class="stat"><div class="stat-number">17+</div><div>أداة متقدمة</div></div>
             </div>
         </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 أدوات التسويق العربي. جميع الحقوق محفوظة.</p>
+        <div class="cta">
+            <h2>جاهز للبدء؟</h2>
+            <p>استمتع بجميع المميزات بدون رسوم</p>
+            <a href="#" class="btn">ابدأ الآن</a>
         </div>
-    </footer>
+    </div>
+    <footer class="footer"><p>&copy; 2025 أدوات التسويق العربي. جميع الحقوق محفوظة.</p></footer>
 </body>
 </html>
