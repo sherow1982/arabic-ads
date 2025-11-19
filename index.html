@@ -1,352 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>أدوات التسويق العربي | منصة أدوات إعلانات وذكاء إصطناعي احترافية</title>
-  <meta name="description" content="مجموعة أدوات تسويق وذكاء اصطناعي متطورة للمسوق العربي والخليجي - شخصيات العملاء، توليد الإعلانات، تحليل المنافسين، أدوات الإبداع والتجارة الإلكترونية.">
-  <meta name="keywords" content="تسويق, أدوات, ذكاء إصطناعي, إعلانات, توليد شخصيات العملاء, قوالب إعلانات, تحليل منافسين, تحليل كلمات مفتاحية, أدوات سيو, تسويق الكتروني">
-  <meta property="og:title" content="منصة أدوات التسويق العربي المتكاملة">
-  <meta property="og:description" content="أكبر تجميعة أدوات إعلانات عربية، ذكاء اصطناعي، سيو، تجارة إلكترونية وتحليل متقدم للسوق العربي.">
-  <meta property="og:image" content="https://arabsad.com/assets/images/arabsad-social.webp">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://sherow1982.github.io/arabic-ads/">
-
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: #1a1c27;
-      color: #fff;
-      min-height: 100vh;
-    }
-    header {
-      background: #10112c;
-      box-shadow: 0 2px 16px #0003;
-      padding: 0 0 0 0;
-      position: sticky; top:0; z-index:100;
-    }
-    .navbar {
-      max-width:1200px;margin:0 auto;padding:16px 10px;display:flex;align-items:center;justify-content:space-between;
-    }
-    .nav-brand {
-      font-size:1.5rem;font-weight:900;color:#ffea06;text-decoration:none;display: flex;align-items:center;gap:0.7rem;
-    }
-    .nav-menu {display:flex;gap:2.1rem;list-style:none;}
-    .nav-menu a {color:#fff;text-decoration:none;font-size:1.02rem;font-weight:700;transition:.2s;}
-    .nav-menu a:hover,.nav-menu .active {color:#ffea06;}
-    .cta-btn {
-      padding:10px 26px;border-radius:30px;
-      background: linear-gradient(90deg,#ffe156,#f3576c);color:#10112c;
-      font-weight:800;border:none;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 20px #f3576c42;transition:.23s;
-    }
-    .cta-btn:hover {letter-spacing: 1.5px;}
-    main {max-width:1200px;margin:36px auto 0 auto;padding:0 1.1rem;}
-    h1 {font-size:clamp(2rem,6vw,2.7rem);font-weight:900;margin-bottom:12px;color:#ffea06;}
-    .hero-desc {font-size:1.13rem;color:#eee;margin-bottom:26px;}
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px,1fr));
-      gap: 2.2rem;
-      margin-bottom:56px;
-      margin-top:16px;
-    }
-    .tool-card {
-      background: #191b2c;
-      border-radius: 18px;
-      box-shadow: 0 3px 20px #0007;
-      border:2px solid #353657;
-      padding: 1.9rem 1.3rem 1.2rem 1.3rem;
-      text-align: right;
-      display:flex;
-      flex-direction:column;
-      transition:.22s;
-      position: relative;
-      min-height: 280px;
-    }
-    .tool-card:hover {
-      box-shadow: 0 8px 42px #ffea068a;
-      border-color: #ffe156;
-      transform:translateY(-6px) scale(1.02);
-    }
-    .tool-icon {
-      width:58px;
-      height:58px;
-      border-radius:16px;
-      background: linear-gradient(135deg,#ffe156 25%,#f3576c 90%);
-      display:flex;align-items:center;justify-content:center;
-      color:#191b2c;font-size:2.2rem;
-      position:absolute;top:-26px;right:28px;
-      box-shadow:0 2.2px 14px #ffe15644;
-    }
-    .tool-title {
-      font-size:1.24rem;
-      font-weight:800;
-      color:#fff;
-      margin-top:30px;
-      margin-bottom:7px;
-      letter-spacing:-.6px;
-    }
-    .tool-desc { color:#ddd;min-height:46px;font-size:.99rem;}
-    .tool-tags {margin:14px 0 22px 0;}
-    .tool-tag {
-      display:inline-block;
-      background:#282950;
-      color:#ffea06;
-      border-radius:22px;
-      padding:4px 15px;
-      font-size:.9rem;
-      margin-left:6px;
-      margin-bottom:5px;
-    }
-    .tool-card .tool-link {
-      margin-top:auto;
-      text-align: center;
-      display:block;
-      font-weight:800;
-      border-radius:30px;
-      padding:0.85rem 0;
-      color:#10112c;
-      background: linear-gradient(90deg,#ffe156,#f3576c);
-      text-decoration:none;
-      letter-spacing:.3px;
-      font-size:1.07rem;
-      transition:.15s;
-      box-shadow:0 2px 14px #fae15641;
-      border:none;
-    }
-    .tool-card .tool-link:hover {
-      background: linear-gradient(90deg,#f3576c,#ffe156);
-      color: #fff;
-    }
-    footer {
-      background:#191b2c;
-      margin-top:56px;
-      color:#ffea06;
-      text-align:center;
-      padding:24px 10px 8px 10px;
-      font-size:.98rem;
-      border-top:2px solid #ffe15636;
-      letter-spacing: .3px;
-    }
-    @media (max-width:700px){
-      .navbar{flex-direction:column;gap:11px;}
-      h1 {font-size:2rem;}
-      .tools-grid{grid-template-columns:1fr;}
-      .tool-card{padding-left:.6rem;padding-right:.6rem;}
-      .tool-icon{right:12px;}
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav class="navbar" aria-label="التنقل الرئيسي">
-      <a href="#" class="nav-brand"><i class="fas fa-bolt"></i> أدوات التسويق العربي</a>
-      <ul class="nav-menu">
-        <li><a href="#tools" class="nav-link active">الأدوات</a></li>
-        <li><a href="https://arabsad.com/services/" class="nav-link">خدمات أخرى</a></li>
-        <li><a href="#footer" class="nav-link">تواصل</a></li>
-      </ul>
-      <a href="#tools" class="cta-btn">جرب الأدوات مجاناً</a>
-    </nav>
-  </header>
-  <main>
-    <h1>كل الأدوات الذكية في مكان واحد</h1>
-    <div class="hero-desc">
-      منصة متباينة ألوان وواجهة سهلة… <b>أطلق إعلاناتك بسرعة وذكاء</b>.<br>
-      كل أداة تدعم السوق العربي بالكامل وسهلة الاستخدام وتسهم في تحسين سيو وإعلانات متجرك أو شركتك.<br>
-    </div>
-    <section id="tools">
-      <div class="tools-grid">
-
-        <!-- Buyer Personas -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-user-friends"></i></div>
-          <div class="tool-title">🧠 مولد شخصيات العملاء</div>
-          <div class="tool-desc">حلّل جمهورك واصنع أنماط عملاء دقيقة جاهزة للانقضاض على الإعلانات المربحة.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">ذكاء اصطناعي</span>
-            <span class="tool-tag">تحليل سيكولوجي</span>
-          </div>
-          <a class="tool-link" href="tools/buyer-personas.html" target="_blank">جرب الأداة</a>
-        </div>
-
-        <!-- AI Ad Generator -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-robot"></i></div>
-          <div class="tool-title">🎨 مولد الإعلانات الذكية</div>
-          <div class="tool-desc">ابتكر أفضل headline ونص إعلان لأي منتج خلال ثوانٍ وبطريقة تناسب اللهجة والثقافة العربية.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">ذكاء اصطناعي</span>
-            <span class="tool-tag">مجاني</span>
-          </div>
-          <a class="tool-link" href="tools/ai-ad-generator.html" target="_blank">جرب الأداة</a>
-        </div>
-
-        <!-- ROI Calculator -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-calculator"></i></div>
-          <div class="tool-title">💰 حاسبة العائد على الاستثمار (ROI)</div>
-          <div class="tool-desc">اعرف أرباحك بدقة من أول حملة وراقب نقطة التعادل بدون اكسر إيدك في الإكسيل!</div>
-          <div class="tool-tags">
-            <span class="tool-tag">تحليل حملات</span>
-          </div>
-          <a class="tool-link" href="tools/roi-calculator.html" target="_blank">جرب الأداة</a>
-        </div>
-
-        <!-- Landing Speed -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-tachometer-alt"></i></div>
-          <div class="tool-title">⚡ محلل سرعة صفحات الهبوط</div>
-          <div class="tool-desc">اعرف في ثانية مدى سرعة موقعك/متجرك وطرق التحسين الفعلي لترفع جوجل PageSpeed وLCP.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">Core Web Vitals</span>
-            <span class="tool-tag">SEO</span>
-          </div>
-          <a class="tool-link" href="tools/landing-speed.html" target="_blank">جرب الأداة</a>
-        </div>
-
-        <!-- Geo Analyzer -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-map-marked-alt"></i></div>
-          <div class="tool-title">🌍 محلل الجمهور الجغرافي</div>
-          <div class="tool-desc">حلل أداء الحملات حسب المدن، واطلع على خرائط الحرارة والفرص غير المكتشفة في الخليج والعالم العربي.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">تحليل متقدم</span>
-          </div>
-          <a class="tool-link" href="tools/geo-analyzer.html" target="_blank">جرب الأداة</a>
-        </div>
-
-        <!-- CLV Calculator -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-chart-pie"></i></div>
-          <div class="tool-title">📊 حاسبة قيمة العميل (CLV)</div>
-          <div class="tool-desc">كم يساوي كل عميل خلال حياته؟ اعرف أين تستثمر لتضاعف الأرباح الحقيقية.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">اقتصاد تسويقي</span>
-            <span class="tool-tag">تنبؤ ذكي</span>
-          </div>
-          <a class="tool-link" href="tools/clv-calculator.html" target="_blank">جرب الأداة</a>
-        </div>
-
-        <!-- Competitor Analyzer -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-search-dollar"></i></div>
-          <div class="tool-title">🔍 محلل الإعلانات التنافسية</div>
-          <div class="tool-desc">راقب وتفوّق على المنافسين: تحليل الإعلانات، وتتبع استراتيجيات السوق... أسرع من أي human spy.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">تحليل حملات</span>
-            <span class="tool-tag">مقارنة</span>
-          </div>
-          <a class="tool-link" href="tools/competitor-ads.html" target="_blank">جرب الأداة</a>
-        </div>
-
-        <!-- Shipping Calculator -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-shipping-fast"></i></div>
-          <div class="tool-title">🚚 حاسبة الشحن المُحسنة</div>
-          <div class="tool-desc">احسب تكلفة الشحن بدقة لكل بلد خليجي… الآن بدون تخمين ولا إضاعة أي ربح.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">خدمات تجارية</span>
-            <span class="tool-tag">خليج</span>
-          </div>
-          <a class="tool-link" href="tools/shipping-calculator.html" target="_blank">جرب الأداة</a>
-        </div>
-
-        <!-- Price Optimizer -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-tags"></i></div>
-          <div class="tool-title">🏷️ محسن الأسعار التنافسية</div>
-          <div class="tool-desc">تابع أسعار السوق وقم بتحديث أسعارك تلقائياً حسب استراتيجيات المنافسة الفعلية.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">ذكاء أسعار</span>
-          </div>
-          <a class="tool-link" href="tools/price-optimizer.html" target="_blank">جرب الأداة</a>
-        </div>
-
-        <!-- Dashboard -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-chart-line"></i></div>
-          <div class="tool-title">📊 لوحة تحكم التحليلات</div>
-          <div class="tool-desc">كل إحصائياتك وأدواتك المتقدمة في مكان واحد: تقارير وتنبيهات، سهل وسريع… بيزنسك بالكامل تحت عينك.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">تقارير شاملة</span>
-          </div>
-          <a class="tool-link" href="tools/dashboard.html" target="_blank">دخول اللوحة</a>
-        </div>
-
-        <!-- أدوات إضافية -->
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-magic"></i></div>
-          <div class="tool-title">🎨 قوالب الإعلانات الجاهزة</div>
-          <div class="tool-desc">جميع القوالب والحملات مجمعة بمكان واحد… ابدأ بلا أي مصمم أو خبير خارجي!</div>
-          <div class="tool-tags">
-            <span class="tool-tag">Templates</span>
-          </div>
-          <a class="tool-link" href="tools/ad-templates.html" target="_blank">تصـفح القوالب</a>
-        </div>
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-key"></i></div>
-          <div class="tool-title">🔑 الكلمات المفتاحية العربية</div>
-          <div class="tool-desc">مولد وتحليل الكلمات المفتاحية العربية للـ SEO والإعلانات لأي منتج أو خدمة.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">SEO</span>
-          </div>
-          <a class="tool-link" href="tools/arabic-keywords.html" target="_blank">جرب الأداة</a>
-        </div>
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-hashtag"></i></div>
-          <div class="tool-title">📱 مولد الهاشتاجات التريندية</div>
-          <div class="tool-desc">احصل فوراً على أنسب هاشتاجات عربية لكل حملة سوشيال في ثانية حقيقية.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">سوشيال ميديا</span>
-          </div>
-          <a class="tool-link" href="tools/trending-hashtags.html" target="_blank">ابدأ البحث</a>
-        </div>
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-moon"></i></div>
-          <div class="tool-title">🌙 مخطط الحملات الرمضانية</div>
-          <div class="tool-desc">كل خطط رمضان جاهزة: أوقات الذروة، أفكار الحملات، قوالب تصاميم رمضانية.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">رمضان</span>
-          </div>
-          <a class="tool-link" href="tools/ramadan-planner.html" target="_blank">خطط الآن</a>
-        </div>
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-clock"></i></div>
-          <div class="tool-title">🗓️ جدولة المنشورات الذكية</div>
-          <div class="tool-desc">حوّل النشر اليدوي إلى جدولة وتشغيل تلقائي لمنشوراتك على مدار الأسبوع.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">Automation</span>
-          </div>
-          <a class="tool-link" href="tools/social-scheduler.html" target="_blank">جدول الآن</a>
-        </div>
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-bolt"></i></div>
-          <div class="tool-title">🚀 محسن Google Ads التلقائي</div>
-          <div class="tool-desc">تحليل وتحسين أوتوماتيكي لكل حملاتك على جوجل بدون أي تدخل يدوي.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">Google Ads</span>
-          </div>
-          <a class="tool-link" href="tools/google-ads-optimizer.html" target="_blank">جرّب الأداة</a>
-        </div>
-        <div class="tool-card">
-          <div class="tool-icon"><i class="fas fa-chart-area"></i></div>
-          <div class="tool-title">⚡ مراقب الأداء المتقدم</div>
-          <div class="tool-desc">مراقبة وتنبيهات أداء موقعك ونتائج الحملات في الزمن الحقيقي.</div>
-          <div class="tool-tags">
-            <span class="tool-tag">أتمتة تقارير</span>
-          </div>
-          <a class="tool-link" href="tools/performance-monitor.html" target="_blank">ابدأ المراقبة</a>
-        </div>
-
-      </div>
-    </section>
-  </main>
-  <footer id="footer">
-    جميع أدوات وواجهات التسويق العربي © 2025 | تنفيذ متباين مخصص للوكالات العربية والخليجية – UI/UX+SEO محترف
-  </footer>
-</body>
-</html>
